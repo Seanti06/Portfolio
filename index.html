@@ -91,17 +91,29 @@
         <!-- Name -->
         <h1 class="text-xl font-bold tracking-tight text-slate-900 leading-tight">Sean Manuel Chua</h1>
 
-        <!-- Social Links with tactile interactions -->
+        <!-- Social Links: Gmail, Facebook, Instagram -->
         <div class="flex items-center gap-2 mt-4 text-slate-600">
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg hover:bg-slate-100 hover:text-slate-900 transition" title="GitHub Profile">
-            <i data-lucide="github" class="w-4.5 h-4.5"></i>
+          <!-- Gmail -->
+          <a href="mailto:chuaseanmanuel3@gmail.com" class="p-2 rounded-lg hover:bg-slate-100 hover:text-red-500 transition" title="Email: chuaseanmanuel3@gmail.com" aria-label="Email Sean">
+            <svg class="w-4.5 h-4.5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
           </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg hover:bg-slate-100 hover:text-blue-600 transition" title="LinkedIn Profile">
-            <i data-lucide="linkedin" class="w-4.5 h-4.5"></i>
+          <!-- Facebook -->
+          <a href="https://www.facebook.com/sean.chua.908579" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg hover:bg-slate-100 hover:text-[#1877F2] transition" title="Facebook: sean.chua.908579" aria-label="Facebook Profile">
+            <svg class="w-4.5 h-4.5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/oni.seanti/" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg hover:bg-slate-100 hover:text-[#E4405F] transition" title="Instagram: @oni.seanti" aria-label="Instagram Profile">
+            <svg class="w-4.5 h-4.5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
           </a>
           <!-- Copy Email Tooltip Button -->
           <button id="copy-email-btn" class="p-2 rounded-lg hover:bg-slate-100 hover:text-blue-600 transition relative group" title="Copy email address" aria-label="Copy email address">
-            <i data-lucide="mail" class="w-4.5 h-4.5"></i>
+            <i data-lucide="copy" class="w-4.5 h-4.5"></i>
             <span id="copy-email-tooltip" class="absolute left-1/2 -translate-x-1/2 -top-8 px-2 py-1 text-[10px] font-semibold text-white bg-slate-900 rounded shadow-md opacity-0 pointer-events-none transition-opacity duration-200 whitespace-nowrap">
               Copy email
             </span>
@@ -193,18 +205,18 @@
             </div>
           </div>
 
-          <!-- Hero Image Card (Right 5 cols) -->
+          <!-- Hero Image Card: Workstation Placeholder -->
           <div class="lg:col-span-5">
             <div class="relative group rounded-2xl overflow-hidden bg-white border border-slate-200/80 shadow-xs aspect-[4/3] flex items-center justify-center">
               <img 
-                src="assets/images/hero-desk.jpg" 
-                alt="Modern developer desk workspace with code on laptop"
+                src="assets/images/workstation-placeholder.svg" 
+                alt="Workstation Placeholder"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/15 via-transparent to-transparent pointer-events-none"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/10 via-transparent to-transparent pointer-events-none"></div>
               <div class="absolute bottom-3 left-3 bg-slate-900/80 backdrop-blur-xs px-2.5 py-1 rounded-md text-[11px] font-mono text-white flex items-center gap-1.5">
                 <span class="w-2 h-2 rounded-full bg-blue-400"></span>
-                <span>Workstation · 2026</span>
+                <span>Workstation Placeholder</span>
               </div>
             </div>
           </div>
@@ -226,28 +238,26 @@
           </button>
         </div>
 
-        <!-- 3 Project Cards Grid -->
+        <!-- 3 Project Cards Grid (Placeholders) -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-          <!-- Project 1: TaskFlow -->
+          <!-- Project 1 Placeholder -->
           <div class="project-card bg-white rounded-2xl border border-slate-200/80 overflow-hidden flex flex-col justify-between shadow-xs">
             <div>
-              <!-- Mockup Image Preview with Browser Header Window -->
               <div class="w-full h-44 bg-slate-900 overflow-hidden relative border-b border-slate-100 group">
                 <img 
-                  src="assets/images/project-taskflow-mockup.svg" 
-                  alt="TaskFlow project preview" 
+                  src="assets/images/project-placeholder-1.svg" 
+                  alt="Project One Preview" 
                   class="project-img w-full h-full object-cover"
                 />
                 <span class="absolute top-2.5 right-2.5 bg-slate-900/80 backdrop-blur-xs text-[10px] font-mono font-medium text-emerald-400 border border-slate-700/80 px-2 py-0.5 rounded-full">
-                  ● Live App
+                  ● Featured
                 </span>
               </div>
 
-              <!-- Card Body -->
               <div class="p-5">
                 <div class="flex items-center justify-between mb-2">
-                  <h3 class="text-base font-bold text-slate-900">TaskFlow</h3>
+                  <h3 class="text-base font-bold text-slate-900">Project Title One</h3>
                   <div class="flex items-center gap-2">
                     <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="p-1 rounded text-slate-400 hover:text-slate-800 transition" title="View Source Code">
                       <i data-lucide="github" class="w-4 h-4"></i>
@@ -258,40 +268,37 @@
                   </div>
                 </div>
                 <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
-                  Project management app for teams to plan, track, and collaborate efficiently with real-time sprint boards.
+                  Project description placeholder. Outline the core features, problem solved, and architecture choices of this web application.
                 </p>
               </div>
             </div>
 
-            <!-- Tech Stack Footer -->
             <div class="px-5 pb-5 pt-0 flex items-center gap-2 text-xs font-medium text-slate-500 flex-wrap">
-              <span class="inline-flex items-center gap-1.5"><span class="tech-dot bg-[#3178c6]"></span>Next.js</span>
+              <span class="inline-flex items-center gap-1.5"><span class="tech-dot bg-[#3178c6]"></span>Technology 1</span>
               <span class="text-slate-300">·</span>
-              <span class="inline-flex items-center gap-1.5"><span class="tech-dot bg-[#3178c6]"></span>TypeScript</span>
+              <span class="inline-flex items-center gap-1.5"><span class="tech-dot bg-[#61dafb]"></span>Technology 2</span>
               <span class="text-slate-300">·</span>
-              <span class="inline-flex items-center gap-1.5"><span class="tech-dot bg-[#38bdf8]"></span>Tailwind CSS</span>
+              <span class="inline-flex items-center gap-1.5"><span class="tech-dot bg-[#38bdf8]"></span>Framework</span>
             </div>
           </div>
 
-          <!-- Project 2: Finance Dashboard -->
+          <!-- Project 2 Placeholder -->
           <div class="project-card bg-white rounded-2xl border border-slate-200/80 overflow-hidden flex flex-col justify-between shadow-xs">
             <div>
-              <!-- Mockup Image Preview -->
               <div class="w-full h-44 bg-slate-100 overflow-hidden relative border-b border-slate-100">
                 <img 
-                  src="assets/images/project-finance-mockup.svg" 
-                  alt="Finance Dashboard preview" 
+                  src="assets/images/project-placeholder-2.svg" 
+                  alt="Project Two Preview" 
                   class="project-img w-full h-full object-cover"
                 />
                 <span class="absolute top-2.5 right-2.5 bg-white/90 backdrop-blur-xs text-[10px] font-mono font-medium text-blue-600 border border-slate-200 px-2 py-0.5 rounded-full">
-                  Enterprise
+                  Application
                 </span>
               </div>
 
-              <!-- Card Body -->
               <div class="p-5">
                 <div class="flex items-center justify-between mb-2">
-                  <h3 class="text-base font-bold text-slate-900">Finance Dashboard</h3>
+                  <h3 class="text-base font-bold text-slate-900">Project Title Two</h3>
                   <div class="flex items-center gap-2">
                     <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="p-1 rounded text-slate-400 hover:text-slate-800 transition" title="View Source Code">
                       <i data-lucide="github" class="w-4 h-4"></i>
@@ -302,40 +309,37 @@
                   </div>
                 </div>
                 <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
-                  Analytics dashboard for monitoring finances with real-time insights, multi-account ledger, and cash-flow forecasting.
+                  Project description placeholder. Outline the key technical challenges, data structures, and APIs implemented.
                 </p>
               </div>
             </div>
 
-            <!-- Tech Stack Footer -->
             <div class="px-5 pb-5 pt-0 flex items-center gap-2 text-xs font-medium text-slate-500 flex-wrap">
-              <span class="inline-flex items-center gap-1.5"><span class="tech-dot bg-[#61dafb]"></span>React</span>
+              <span class="inline-flex items-center gap-1.5"><span class="tech-dot bg-[#3178c6]"></span>Technology 1</span>
               <span class="text-slate-300">·</span>
-              <span class="inline-flex items-center gap-1.5"><span class="tech-dot bg-[#2563eb]"></span>Recharts</span>
+              <span class="inline-flex items-center gap-1.5"><span class="tech-dot bg-[#2563eb]"></span>Technology 2</span>
               <span class="text-slate-300">·</span>
-              <span class="inline-flex items-center gap-1.5"><span class="tech-dot bg-[#5fa04e]"></span>Node.js</span>
+              <span class="inline-flex items-center gap-1.5"><span class="tech-dot bg-[#5fa04e]"></span>Database</span>
             </div>
           </div>
 
-          <!-- Project 3: Shoply -->
+          <!-- Project 3 Placeholder -->
           <div class="project-card bg-white rounded-2xl border border-slate-200/80 overflow-hidden flex flex-col justify-between shadow-xs">
             <div>
-              <!-- Mockup Image Preview -->
               <div class="w-full h-44 bg-slate-50 overflow-hidden relative border-b border-slate-100">
                 <img 
-                  src="assets/images/project-shoply-mockup.svg" 
-                  alt="Shoply project preview" 
+                  src="assets/images/project-placeholder-3.svg" 
+                  alt="Project Three Preview" 
                   class="project-img w-full h-full object-cover"
                 />
                 <span class="absolute top-2.5 right-2.5 bg-white/90 backdrop-blur-xs text-[10px] font-mono font-medium text-purple-600 border border-slate-200 px-2 py-0.5 rounded-full">
-                  E-Commerce
+                  System
                 </span>
               </div>
 
-              <!-- Card Body -->
               <div class="p-5">
                 <div class="flex items-center justify-between mb-2">
-                  <h3 class="text-base font-bold text-slate-900">Shoply</h3>
+                  <h3 class="text-base font-bold text-slate-900">Project Title Three</h3>
                   <div class="flex items-center gap-2">
                     <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="p-1 rounded text-slate-400 hover:text-slate-800 transition" title="View Source Code">
                       <i data-lucide="github" class="w-4 h-4"></i>
@@ -346,18 +350,17 @@
                   </div>
                 </div>
                 <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
-                  Modern e-commerce platform with product search, cart persistence, automated taxes, and Stripe checkout.
+                  Project description placeholder. Detail user experience goals, deployment pipelines, and responsive design execution.
                 </p>
               </div>
             </div>
 
-            <!-- Tech Stack Footer -->
             <div class="px-5 pb-5 pt-0 flex items-center gap-2 text-xs font-medium text-slate-500 flex-wrap">
-              <span class="inline-flex items-center gap-1.5"><span class="tech-dot bg-[#3178c6]"></span>Next.js</span>
+              <span class="inline-flex items-center gap-1.5"><span class="tech-dot bg-[#3178c6]"></span>Technology 1</span>
               <span class="text-slate-300">·</span>
-              <span class="inline-flex items-center gap-1.5"><span class="tech-dot bg-[#635bff]"></span>Stripe</span>
+              <span class="inline-flex items-center gap-1.5"><span class="tech-dot bg-[#635bff]"></span>Technology 2</span>
               <span class="text-slate-300">·</span>
-              <span class="inline-flex items-center gap-1.5"><span class="tech-dot bg-[#10aa50]"></span>MongoDB</span>
+              <span class="inline-flex items-center gap-1.5"><span class="tech-dot bg-[#10aa50]"></span>Cloud Tool</span>
             </div>
           </div>
 
@@ -408,45 +411,43 @@
               </div>
               <p class="text-slate-500 text-xs mb-5">Technologies and toolchains I work with daily:</p>
               
+              <!-- Skills Placeholders (Slot in your actual skills) -->
               <div class="flex flex-wrap gap-2">
                 <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
-                  <span class="tech-dot bg-[#f7df1e]"></span>JavaScript
+                  <span class="tech-dot bg-[#3178c6]"></span>Skill Name 1
                 </span>
                 <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
-                  <span class="tech-dot bg-[#3178c6]"></span>TypeScript
+                  <span class="tech-dot bg-[#61dafb]"></span>Skill Name 2
                 </span>
                 <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
-                  <span class="tech-dot bg-[#61dafb]"></span>React
+                  <span class="tech-dot bg-[#38bdf8]"></span>Skill Name 3
                 </span>
                 <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
-                  <span class="tech-dot bg-[#000000]"></span>Next.js
+                  <span class="tech-dot bg-[#5fa04e]"></span>Skill Name 4
                 </span>
                 <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
-                  <span class="tech-dot bg-[#5fa04e]"></span>Node.js
+                  <span class="tech-dot bg-[#f7df1e]"></span>Skill Name 5
                 </span>
                 <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
-                  <span class="tech-dot bg-[#38bdf8]"></span>Tailwind CSS
+                  <span class="tech-dot bg-[#2563eb]"></span>Skill Name 6
                 </span>
                 <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
-                  <span class="tech-dot bg-[#336791]"></span>PostgreSQL
+                  <span class="tech-dot bg-[#336791]"></span>Skill Name 7
                 </span>
                 <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
-                  <span class="tech-dot bg-[#10aa50]"></span>MongoDB
+                  <span class="tech-dot bg-[#10aa50]"></span>Skill Name 8
                 </span>
                 <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
-                  <span class="tech-dot bg-[#e535ab]"></span>GraphQL
+                  <span class="tech-dot bg-[#e535ab]"></span>Skill Name 9
                 </span>
                 <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
-                  <span class="tech-dot bg-[#2496ed]"></span>Docker
+                  <span class="tech-dot bg-[#2496ed]"></span>Skill Name 10
                 </span>
                 <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
-                  <span class="tech-dot bg-[#f05032]"></span>Git &amp; GitHub
+                  <span class="tech-dot bg-[#f05032]"></span>Skill Name 11
                 </span>
                 <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
-                  <span class="tech-dot bg-[#ff9900]"></span>AWS &amp; Vercel
-                </span>
-                <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
-                  <span class="tech-dot bg-[#a259ff]"></span>Figma
+                  <span class="tech-dot bg-[#ff9900]"></span>Skill Name 12
                 </span>
               </div>
             </div>
@@ -472,62 +473,60 @@
 
         <div class="bg-white p-7 rounded-2xl border border-slate-200/80 shadow-xs space-y-8">
 
-          <!-- Experience Item 1 -->
+          <!-- Experience Item 1 Placeholder -->
           <div class="timeline-item">
             <span class="timeline-dot"></span>
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-1">
               <h3 class="text-base font-bold text-slate-900">
-                Senior Software Engineer · <span class="text-blue-600 font-semibold">TechCorp Innovations</span>
+                Job Position Title One · <span class="text-blue-600 font-semibold">Company / Organization</span>
               </h3>
               <time class="text-xs font-semibold text-slate-500 tabular-nums">2024 to Present</time>
             </div>
             <p class="text-slate-600 text-sm leading-relaxed mb-3">
-              Lead development of client-facing web portals and microservices. Boosted web performance core vitals by 40% and reduced page load times from 2.8s to 0.9s across main customer touchpoints.
+              Describe your key achievements, responsibilities, systems maintained, and quantifiable impact delivered in this role.
             </p>
             <div class="flex flex-wrap gap-2 text-[11px] font-mono text-slate-600">
-              <span class="bg-slate-100 px-2 py-0.5 rounded">Next.js 14</span>
-              <span class="bg-slate-100 px-2 py-0.5 rounded">TypeScript</span>
-              <span class="bg-slate-100 px-2 py-0.5 rounded">PostgreSQL</span>
-              <span class="bg-slate-100 px-2 py-0.5 rounded">Docker</span>
+              <span class="bg-slate-100 px-2 py-0.5 rounded">Skill / Tool</span>
+              <span class="bg-slate-100 px-2 py-0.5 rounded">Framework</span>
+              <span class="bg-slate-100 px-2 py-0.5 rounded">Platform</span>
             </div>
           </div>
 
-          <!-- Experience Item 2 -->
+          <!-- Experience Item 2 Placeholder -->
           <div class="timeline-item">
             <span class="timeline-dot"></span>
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-1">
               <h3 class="text-base font-bold text-slate-900">
-                Full Stack Engineer · <span class="text-blue-600 font-semibold">Creative Digital Studio</span>
+                Job Position Title Two · <span class="text-blue-600 font-semibold">Company / Organization</span>
               </h3>
               <time class="text-xs font-semibold text-slate-500 tabular-nums">2022 to 2024</time>
             </div>
             <p class="text-slate-600 text-sm leading-relaxed mb-3">
-              Engineered and maintained over 12 client products, integrated third-party payment gateways with Stripe, and designed headless content architectures for seamless client workflows.
+              Outline cross-functional collaboration, technical deliverables shipped, architecture workflows, and features engineered.
             </p>
             <div class="flex flex-wrap gap-2 text-[11px] font-mono text-slate-600">
-              <span class="bg-slate-100 px-2 py-0.5 rounded">React</span>
-              <span class="bg-slate-100 px-2 py-0.5 rounded">Node.js</span>
-              <span class="bg-slate-100 px-2 py-0.5 rounded">Tailwind CSS</span>
-              <span class="bg-slate-100 px-2 py-0.5 rounded">Stripe</span>
+              <span class="bg-slate-100 px-2 py-0.5 rounded">Skill / Tool</span>
+              <span class="bg-slate-100 px-2 py-0.5 rounded">Framework</span>
+              <span class="bg-slate-100 px-2 py-0.5 rounded">Platform</span>
             </div>
           </div>
 
-          <!-- Experience Item 3 -->
+          <!-- Experience Item 3 Placeholder -->
           <div class="timeline-item">
             <span class="timeline-dot"></span>
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-1">
               <h3 class="text-base font-bold text-slate-900">
-                Frontend Developer · <span class="text-blue-600 font-semibold">Apex Labs</span>
+                Job Position Title Three · <span class="text-blue-600 font-semibold">Company / Organization</span>
               </h3>
               <time class="text-xs font-semibold text-slate-500 tabular-nums">2020 to 2022</time>
             </div>
             <p class="text-slate-600 text-sm leading-relaxed mb-3">
-              Constructed accessible, high-performance UI components, collaborated closely with designers in Figma, and implemented comprehensive automated test suites using Jest and Cypress.
+              Summary of foundational projects, UI development, test suites, or initial engineering contributions.
             </p>
             <div class="flex flex-wrap gap-2 text-[11px] font-mono text-slate-600">
-              <span class="bg-slate-100 px-2 py-0.5 rounded">JavaScript</span>
-              <span class="bg-slate-100 px-2 py-0.5 rounded">React</span>
-              <span class="bg-slate-100 px-2 py-0.5 rounded">REST APIs</span>
+              <span class="bg-slate-100 px-2 py-0.5 rounded">Skill / Tool</span>
+              <span class="bg-slate-100 px-2 py-0.5 rounded">Framework</span>
+              <span class="bg-slate-100 px-2 py-0.5 rounded">Platform</span>
             </div>
           </div>
 
@@ -543,7 +542,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-          <!-- Review 1 -->
+          <!-- Review 1 Placeholder -->
           <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col justify-between">
             <div>
               <div class="flex items-center gap-1 text-amber-400 mb-4">
@@ -554,21 +553,21 @@
                 <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
               </div>
               <p class="text-slate-600 text-sm leading-relaxed italic mb-6">
-                "One of the most diligent and reliable developers I have worked with. Delivered our dashboard project ahead of schedule with flawless code quality and extraordinary attention to detail."
+                "Placeholder testimonial highlighting your technical execution, reliability, work ethic, and collaborative communication on client projects."
               </p>
             </div>
             <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
               <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-700 font-bold flex items-center justify-center text-sm ring-1 ring-blue-200">
-                ES
+                CN
               </div>
               <div>
-                <h3 class="font-bold text-sm text-slate-900">Emily Sanchez</h3>
-                <p class="text-xs text-slate-500">VP of Engineering at FinScale</p>
+                <h3 class="font-bold text-sm text-slate-900">Client / Colleague Name</h3>
+                <p class="text-xs text-slate-500">Position, Company / Client</p>
               </div>
             </div>
           </div>
 
-          <!-- Review 2 -->
+          <!-- Review 2 Placeholder -->
           <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col justify-between">
             <div>
               <div class="flex items-center gap-1 text-amber-400 mb-4">
@@ -579,16 +578,16 @@
                 <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
               </div>
               <p class="text-slate-600 text-sm leading-relaxed italic mb-6">
-                "Exceptional communication and technical skills. Rebuilt our e-commerce platform and our checkout conversion immediately surged by 28%. Truly a pleasure to work with."
+                "Another placeholder endorsement praising your problem-solving abilities, delivery speed, attention to detail, and positive impact on the team."
               </p>
             </div>
             <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
               <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 font-bold flex items-center justify-center text-sm ring-1 ring-emerald-200">
-                MK
+                MP
               </div>
               <div>
-                <h3 class="font-bold text-sm text-slate-900">Marcus Kim</h3>
-                <p class="text-xs text-slate-500">Founder &amp; CEO at Shoply</p>
+                <h3 class="font-bold text-sm text-slate-900">Manager / Partner Name</h3>
+                <p class="text-xs text-slate-500">Role, Organization</p>
               </div>
             </div>
           </div>
@@ -606,39 +605,54 @@
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
 
-          <!-- Left Info Column: Cohesive Card without nested containers -->
+          <!-- Left Info Column: Direct Channels (Gmail, Facebook, Instagram) -->
           <div class="lg:col-span-5 bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col justify-between">
-            <div class="space-y-6">
+            <div class="space-y-5">
               
+              <!-- Gmail -->
               <div class="flex items-start gap-3.5">
-                <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
-                  <i data-lucide="mail" class="w-5 h-5"></i>
+                <div class="w-10 h-10 rounded-xl bg-red-50 text-[#EA4335] flex items-center justify-center shrink-0">
+                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                  </svg>
                 </div>
                 <div>
-                  <p class="text-xs text-slate-400 font-medium">Direct Email</p>
-                  <a href="mailto:your.email@example.com" class="text-sm font-semibold text-slate-800 hover:text-blue-600 transition">
-                    your.email@example.com
+                  <p class="text-xs text-slate-400 font-medium">Gmail</p>
+                  <a href="mailto:chuaseanmanuel3@gmail.com" class="text-sm font-semibold text-slate-800 hover:text-red-500 transition break-all">
+                    chuaseanmanuel3@gmail.com
                   </a>
                 </div>
               </div>
 
+              <!-- Facebook -->
               <div class="flex items-start gap-3.5 pt-4 border-t border-slate-100">
-                <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
-                  <i data-lucide="map-pin" class="w-5 h-5"></i>
+                <div class="w-10 h-10 rounded-xl bg-blue-50 text-[#1877F2] flex items-center justify-center shrink-0">
+                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                  </svg>
                 </div>
                 <div>
-                  <p class="text-xs text-slate-400 font-medium">Location</p>
-                  <p class="text-sm font-semibold text-slate-800">Manila, PH (Open to Remote)</p>
+                  <p class="text-xs text-slate-400 font-medium">Facebook</p>
+                  <a href="https://www.facebook.com/sean.chua.908579" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-slate-800 hover:text-[#1877F2] transition inline-flex items-center gap-1">
+                    <span>sean.chua.908579</span>
+                    <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-slate-400"></i>
+                  </a>
                 </div>
               </div>
 
+              <!-- Instagram -->
               <div class="flex items-start gap-3.5 pt-4 border-t border-slate-100">
-                <div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0">
-                  <i data-lucide="clock" class="w-5 h-5"></i>
+                <div class="w-10 h-10 rounded-xl bg-pink-50 text-[#E4405F] flex items-center justify-center shrink-0">
+                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                  </svg>
                 </div>
                 <div>
-                  <p class="text-xs text-slate-400 font-medium">Response SLA</p>
-                  <p class="text-sm font-semibold text-slate-800">Typically replies within 24 hours</p>
+                  <p class="text-xs text-slate-400 font-medium">Instagram</p>
+                  <a href="https://www.instagram.com/oni.seanti/" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-slate-800 hover:text-[#E4405F] transition inline-flex items-center gap-1">
+                    <span>@oni.seanti</span>
+                    <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-slate-400"></i>
+                  </a>
                 </div>
               </div>
 
@@ -646,7 +660,7 @@
 
             <div class="mt-8 pt-5 border-t border-slate-100 text-xs text-slate-500">
               <span class="inline-flex items-center gap-1.5 text-emerald-600 font-semibold">
-                <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Available for Q4 projects
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Open for collaboration
               </span>
             </div>
           </div>
@@ -745,17 +759,17 @@
         </button>
       </div>
 
-      <!-- Extra projects list -->
+      <!-- Extra projects list (Placeholders) -->
       <div class="divide-y divide-slate-100">
 
         <div class="py-4 hover:bg-slate-50/60 transition px-2 rounded-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
             <div class="flex items-center gap-2">
-              <h4 class="font-bold text-slate-900 text-sm">TaskFlow: Project Management Suite</h4>
+              <h4 class="font-bold text-slate-900 text-sm">Project Title One</h4>
               <span class="text-[10px] font-mono bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-full font-semibold">Active</span>
             </div>
-            <p class="text-xs text-slate-600 mt-1">Kanban sprint board with real-time sync, role permissions, and metrics tracking.</p>
-            <span class="inline-block mt-1.5 text-[11px] font-medium text-slate-500">Next.js · TypeScript · Tailwind · Zustand</span>
+            <p class="text-xs text-slate-600 mt-1">Project description placeholder. Outline the core features and problem solved.</p>
+            <span class="inline-block mt-1.5 text-[11px] font-medium text-slate-500">Technology 1 · Technology 2 · Framework</span>
           </div>
           <a href="#" class="shrink-0 text-xs font-semibold text-blue-600 hover:text-blue-700 inline-flex items-center gap-1">
             <span>Demo</span>
@@ -766,11 +780,11 @@
         <div class="py-4 hover:bg-slate-50/60 transition px-2 rounded-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
             <div class="flex items-center gap-2">
-              <h4 class="font-bold text-slate-900 text-sm">Finance Dashboard: SaaS Analytics</h4>
-              <span class="text-[10px] font-mono bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full font-semibold">SaaS</span>
+              <h4 class="font-bold text-slate-900 text-sm">Project Title Two</h4>
+              <span class="text-[10px] font-mono bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full font-semibold">App</span>
             </div>
-            <p class="text-xs text-slate-600 mt-1">Real-time revenue metrics, churn projections, and interactive financial charts.</p>
-            <span class="inline-block mt-1.5 text-[11px] font-medium text-slate-500">React · Recharts · Node.js · Express</span>
+            <p class="text-xs text-slate-600 mt-1">Project description placeholder. Outline the key technical architecture.</p>
+            <span class="inline-block mt-1.5 text-[11px] font-medium text-slate-500">Technology 1 · Technology 2 · Database</span>
           </div>
           <a href="#" class="shrink-0 text-xs font-semibold text-blue-600 hover:text-blue-700 inline-flex items-center gap-1">
             <span>Demo</span>
@@ -781,11 +795,11 @@
         <div class="py-4 hover:bg-slate-50/60 transition px-2 rounded-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
             <div class="flex items-center gap-2">
-              <h4 class="font-bold text-slate-900 text-sm">Shoply: Headless E-Commerce</h4>
-              <span class="text-[10px] font-mono bg-purple-50 text-purple-700 px-2 py-0.5 rounded-full font-semibold">Store</span>
+              <h4 class="font-bold text-slate-900 text-sm">Project Title Three</h4>
+              <span class="text-[10px] font-mono bg-purple-50 text-purple-700 px-2 py-0.5 rounded-full font-semibold">Platform</span>
             </div>
-            <p class="text-xs text-slate-600 mt-1">Modern shop with instant search, stripe checkout, cart persistence, and order tracking.</p>
-            <span class="inline-block mt-1.5 text-[11px] font-medium text-slate-500">Next.js · Stripe · MongoDB · Tailwind</span>
+            <p class="text-xs text-slate-600 mt-1">Project description placeholder. Detail user experience and deployment.</p>
+            <span class="inline-block mt-1.5 text-[11px] font-medium text-slate-500">Technology 1 · Technology 2 · Cloud</span>
           </div>
           <a href="#" class="shrink-0 text-xs font-semibold text-blue-600 hover:text-blue-700 inline-flex items-center gap-1">
             <span>Demo</span>
@@ -796,11 +810,11 @@
         <div class="py-4 hover:bg-slate-50/60 transition px-2 rounded-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
             <div class="flex items-center gap-2">
-              <h4 class="font-bold text-slate-900 text-sm">DevPulse: Developer Social Network</h4>
+              <h4 class="font-bold text-slate-900 text-sm">Project Title Four</h4>
               <span class="text-[10px] font-mono bg-amber-50 text-amber-700 px-2 py-0.5 rounded-full font-semibold">Beta</span>
             </div>
-            <p class="text-xs text-slate-600 mt-1">Community feed for tech snippets, Markdown blogging, and code collaborations.</p>
-            <span class="inline-block mt-1.5 text-[11px] font-medium text-slate-500">PostgreSQL · Prisma · React · Tailwind</span>
+            <p class="text-xs text-slate-600 mt-1">Additional project placeholder for extra projects or open source repositories.</p>
+            <span class="inline-block mt-1.5 text-[11px] font-medium text-slate-500">Technology 1 · Technology 2 · Framework</span>
           </div>
           <a href="#" class="shrink-0 text-xs font-semibold text-blue-600 hover:text-blue-700 inline-flex items-center gap-1">
             <span>Demo</span>

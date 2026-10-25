@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const copyEmailBtn = document.getElementById('copy-email-btn');
   const copyTooltip = document.getElementById('copy-email-tooltip');
   if (copyEmailBtn && copyTooltip) {
-    const emailToCopy = "your.email@example.com";
+    const emailToCopy = "chuaseanmanuel3@gmail.com";
     
     copyEmailBtn.addEventListener('mouseenter', () => {
       copyTooltip.textContent = "Copy email";
