@@ -3,7 +3,7 @@
 Digital portfolio of Sean Manuel Chua, a 4th-year Bachelor of Science in Information Technology (BSIT) student.
 
 ## About
-This portfolio showcases my background, coursework, tools, and web projects. Built with semantic HTML5, Tailwind CSS, and vanilla JavaScript.
+This portfolio showcases my background, coursework, tools, and web projects. Built with semantic HTML5, CSS3, and JavaScript.
 
 ## Live Website
 https://seanti06.github.io/Portfolio/
