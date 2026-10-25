@@ -18,6 +18,3 @@ https://seanti06.github.io/Portfolio/
 - styles.css - Custom typography and layout styles
 - script.js - Interactive features and navigation
 - assets/ - Profile picture, project graphics, and documents
-
-## License
-Copyright 2026 Sean Manuel Chua. All rights reserved.
