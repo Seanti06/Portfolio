@@ -1,7 +1,15 @@
 import time
 import os
+import sys
 import subprocess
 from capture_preview import capture
+
+if sys.platform == "win32":
+    try:
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+        sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
 
 WATCH_FILES = ["index.html", "styles.css", "script.js"]
 
@@ -14,9 +22,9 @@ def get_mtimes():
 
 def main():
     print("=" * 60)
-    print("👁  Playwright Live Watcher Active")
+    print("[PLAYWRIGHT LIVE WATCHER ACTIVE]")
     print("Watching index.html, styles.css, script.js for changes...")
-    print("Whenever you save a file, Playwright will capture a fresh screenshot!")
+    print("Whenever you save a file, Playwright will capture a fresh screenshot.")
     print("Press Ctrl+C to stop.")
     print("=" * 60)
     
@@ -36,7 +44,7 @@ def main():
             if changed:
                 last_mtimes = current_mtimes
                 capture()
-                print("✓ Screenshot updated in assets/preview-desktop.png and assets/preview-full.png")
+                print("[OK] Screenshot updated in assets/preview-desktop.png and assets/preview-full.png")
         except KeyboardInterrupt:
             print("\nWatcher stopped.")
             break

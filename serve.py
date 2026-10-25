@@ -2,12 +2,21 @@ import http.server
 import socketserver
 import webbrowser
 import sys
+import os
+
+# Ensure UTF-8 output on Windows console
+if sys.platform == "win32":
+    try:
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+        sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
 
 PORT = 3000
 
 class Handler(http.server.SimpleHTTPRequestHandler):
     def end_headers(self):
-        # Enable caching-free local development
+        # Disable cache for local development
         self.send_header('Cache-Control', 'no-store, no-cache, must-revalidate')
         super().end_headers()
 
@@ -19,9 +28,9 @@ def run():
                 PORT = attempt_port
                 url = f"http://localhost:{PORT}"
                 print("=" * 60)
-                print(f"🚀 Portfolio Local Server is Running!")
-                print(f"👉 Local URL: {url}")
-                print("👉 Press Ctrl+C in this terminal to stop the server.")
+                print(f"[PORTFOLIO LOCAL SERVER RUNNING]")
+                print(f"Local URL: {url}")
+                print("Press Ctrl+C in this terminal window to stop the server.")
                 print("=" * 60)
                 
                 try:
