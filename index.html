@@ -53,7 +53,7 @@
       </div>
     </div>
     <div class="flex items-center gap-2">
-      <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold px-4 py-1.5 rounded-full inline-flex items-center gap-1 shadow-xs transition whitespace-nowrap">
+      <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold px-4 py-1.5 rounded-xl inline-flex items-center gap-1 shadow-xs transition whitespace-nowrap">
         <span>Get in touch</span>
         <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
       </a>
@@ -67,7 +67,7 @@
   <div id="mobile-backdrop" class="fixed inset-0 bg-slate-900/40 backdrop-blur-xs z-40 hidden transition-opacity"></div>
 
   <!-- Main Container -->
-  <div class="max-w-7xl mx-auto flex flex-col lg:flex-row min-h-screen">
+  <div class="w-full flex flex-col lg:flex-row min-h-screen">
 
     <!-- LEFT SIDEBAR (Desktop Fixed/Sticky) -->
     <aside id="sidebar" class="fixed lg:sticky top-0 left-0 h-screen w-64 xl:w-72 bg-white border-r border-slate-200/80 z-50 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out flex flex-col justify-between p-6 xl:p-7 overflow-y-auto">
@@ -154,17 +154,17 @@
             <i data-lucide="user" class="w-4.5 h-4.5"></i>
             <span>About</span>
           </a>
+          <a href="#skills" class="nav-link" data-section="skills">
+            <i data-lucide="code-2" class="w-4.5 h-4.5"></i>
+            <span>Tech Skills</span>
+          </a>
           <a href="#projects" class="nav-link" data-section="projects">
             <i data-lucide="layout-grid" class="w-4.5 h-4.5"></i>
             <span>Projects</span>
           </a>
-          <a href="#skills" class="nav-link" data-section="skills">
-            <i data-lucide="code-2" class="w-4.5 h-4.5"></i>
-            <span>Tools &amp; Skills</span>
-          </a>
-          <a href="#experience" class="nav-link" data-section="experience">
-            <i data-lucide="briefcase" class="w-4.5 h-4.5"></i>
-            <span>Experience</span>
+          <a href="#certifications" class="nav-link" data-section="certifications">
+            <i data-lucide="award" class="w-4.5 h-4.5"></i>
+            <span>Certifications</span>
           </a>
           <a href="#testimonials" class="nav-link" data-section="testimonials">
             <i data-lucide="star" class="w-4.5 h-4.5"></i>
@@ -189,27 +189,56 @@
     </aside>
 
     <!-- RIGHT MAIN CONTENT AREA -->
-    <main class="flex-1 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 py-6 sm:py-8 lg:py-10 max-w-5xl">
+    <main class="flex-1 px-4 sm:px-6 md:px-8 lg:px-12 py-6 sm:py-8 lg:py-10 max-w-6xl">
 
       <!-- HERO SECTION -->
       <section id="home" class="pt-2 sm:pt-4 pb-12 sm:pb-16">
         
         <!-- Top bar with 'Get in touch' CTA -->
-        <div class="flex items-center justify-between mb-8 sm:mb-10">
-          <div>
-            <span class="text-xs font-bold text-blue-600 tracking-widest uppercase">HELLO, I'M</span>
-          </div>
-          <a href="#contact" class="hidden sm:inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-5 py-2.5 rounded-full shadow-xs hover:shadow transition transform hover:-translate-y-0.5 whitespace-nowrap">
+        <div class="flex items-center justify-end mb-4 sm:mb-6">
+          <a href="#contact" class="hidden sm:inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-xs hover:shadow transition transform hover:-translate-y-0.5 whitespace-nowrap">
             <span>Get in touch</span>
             <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
           </a>
         </div>
 
         <!-- Hero Content Grid -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 xl:gap-10 items-center">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           
           <!-- Hero Text & CTAs (Left 7 cols) -->
           <div class="lg:col-span-7">
+            <span class="inline-block text-xs font-bold text-blue-600 tracking-widest uppercase mb-2.5">HELLO, I'M</span>
+            <h1 class="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-black text-slate-900 tracking-tight leading-[1.08] mb-4">
+              Sean Manuel Chua
+            </h1>
+            <p class="text-slate-600 text-base sm:text-lg leading-relaxed max-w-xl mb-6 sm:mb-8">
+              4th-year BSIT student passionate about software engineering and web development. Building practical applications with Java, Python, JavaScript, and modern web technologies.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+              <a href="#projects" class="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-xl shadow-xs hover:shadow transition text-center">
+                <span>View my work</span>
+                <i data-lucide="arrow-down" class="w-4 h-4 text-blue-200"></i>
+              </a>
+              <a href="assets/resume.pdf" download="Sean_Manuel_Chua_CV.pdf" class="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-700 font-semibold px-5 py-3 rounded-xl border border-slate-200/90 shadow-xs hover:border-slate-300 transition text-center">
+                <span>Download CV</span>
+                <i data-lucide="download" class="w-4 h-4 text-slate-500"></i>
+              </a>
+            </div>
+          </div>        <!-- Top bar with 'Get in touch' CTA -->
+        <div class="flex items-center justify-end mb-4 sm:mb-6">
+          <a href="#contact" class="hidden sm:inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-xs hover:shadow transition transform hover:-translate-y-0.5 whitespace-nowrap">
+            <span>Get in touch</span>
+            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+        <!-- Hero Content Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+          
+          <!-- Hero Text & CTAs (Left 7 cols) -->
+          <div class="lg:col-span-7">
+            <span class="inline-block text-xs font-bold text-blue-600 tracking-widest uppercase mb-2.5">HELLO, I'M</span>
             <h1 class="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-black text-slate-900 tracking-tight leading-[1.08] mb-4">
               Sean Manuel Chua
             </h1>
@@ -252,72 +281,96 @@
       <section class="py-12 sm:py-14 lg:py-16 border-t border-slate-200/70">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
 
-          <!-- About Me Card (Left 6 cols) -->
-          <div id="about" class="lg:col-span-6 bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col justify-between">
-            <div>
-              <h2 class="text-xl font-bold tracking-tight text-slate-900 mb-4">About Me</h2>
-              <div class="space-y-3.5 text-slate-600 text-sm leading-relaxed">
-                <p>
-                  I am a 4th-year Bachelor of Science in Information Technology (BSIT) student with a passion for software development, problem-solving, and building practical digital solutions.
-                </p>
-                <p>
-                  Currently expanding my expertise in core programming languages like <strong class="text-slate-800 font-semibold">Java</strong>, <strong class="text-slate-800 font-semibold">Python</strong>, and <strong class="text-slate-800 font-semibold">JavaScript</strong>, alongside foundational <strong class="text-slate-800 font-semibold">web development</strong> using HTML and CSS.
-                </p>
-                <p class="text-slate-500 text-xs pt-1">
-                  I enjoy translating academic coursework and practical projects into working, user-friendly applications while actively preparing for internship and junior software engineering roles.
-                </p>
-              </div>
-            </div>
-
-            <!-- Focus areas -->
-            <div class="pt-6 mt-6 border-t border-slate-100 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-slate-600 font-medium">
-              <span class="inline-flex items-center gap-1.5">
-                <i data-lucide="check" class="w-3.5 h-3.5 text-blue-600"></i> Java &amp; Python
-              </span>
-              <span class="inline-flex items-center gap-1.5">
-                <i data-lucide="check" class="w-3.5 h-3.5 text-blue-600"></i> HTML, CSS, JavaScript
-              </span>
-              <span class="inline-flex items-center gap-1.5">
-                <i data-lucide="check" class="w-3.5 h-3.5 text-blue-600"></i> IT Fundamentals
-              </span>
-            </div>
-          </div>
-
-          <!-- Tools & Skills Card (Right 6 cols) -->
+                    <!-- Tech Skills Card (Right 6 cols) -->
           <div id="skills" class="lg:col-span-6 bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col justify-between">
             <div>
-              <div class="flex items-center justify-between mb-4">
-                <h2 class="text-xl font-bold tracking-tight text-slate-900">Tools and Skills</h2>
-                <span class="text-[11px] font-mono text-slate-400">Core Stack</span>
+              <div class="mb-4">
+                <h2 class="text-xl font-bold tracking-tight text-slate-900">Tech Skills</h2>
+                <p class="text-slate-500 text-xs mt-1">Programming languages, design software, and development toolchain.</p>
               </div>
-              <p class="text-slate-500 text-xs mb-5">Languages, web fundamentals, and development tools:</p>
               
-              <!-- Skills & Tools Pills -->
-              <div class="flex flex-wrap gap-2">
-                <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
-                  <span class="tech-dot bg-[#ea2d2e]"></span>Java
-                </span>
-                <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
-                  <span class="tech-dot bg-[#3776ab]"></span>Python
-                </span>
-                <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
-                  <span class="tech-dot bg-[#e34f26]"></span>HTML
-                </span>
-                <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
-                  <span class="tech-dot bg-[#1572b6]"></span>CSS
-                </span>
-                <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
-                  <span class="tech-dot bg-[#f7df1e]"></span>JavaScript
-                </span>
-                <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
-                  <span class="tech-dot bg-[#007acc]"></span>VS Code
-                </span>
-                <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
-                  <span class="tech-dot bg-[#f05032]"></span>Git &amp; GitHub
-                </span>
-                <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
-                  <span class="tech-dot bg-[#336791]"></span>MySQL
-                </span>
+              <div class="space-y-4">
+                <!-- Languages -->
+                <div>
+                  <h3 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Languages</h3>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
+                      <span class="tech-dot bg-[#ea2d2e]"></span>Java
+                    </span>
+                    <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
+                      <span class="tech-dot bg-[#3776ab]"></span>Python
+                    </span>
+                    <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
+                      <span class="tech-dot bg-[#f7df1e]"></span>JavaScript
+                    </span>
+                    <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
+                      <span class="tech-dot bg-[#e34f26]"></span>HTML
+                    </span>
+                    <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
+                      <span class="tech-dot bg-[#1572b6]"></span>CSS
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Design Tools -->
+                <div>
+                  <h3 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Design Tools</h3>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
+                      <span class="tech-dot bg-[#f24e1e]"></span>Figma
+                    </span>
+                    <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
+                      <span class="tech-dot bg-[#00c4cc]"></span>Canva
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Development Tools -->
+                <div>
+                  <h3 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Development Tools</h3>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
+                      <span class="tech-dot bg-[#007acc]"></span>VS Code
+                    </span>
+                    <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
+                      <span class="tech-dot bg-[#f05032]"></span>Git &amp; GitHub
+                    </span>
+                    <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
+                      <span class="tech-dot bg-[#336791]"></span>MySQL
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-5 border-t border-slate-100 flex items-center justify-between text-xs">
+              <span class="text-slate-400">Continuous learner</span>
+              <a href="#projects" class="font-semibold text-blue-600 hover:text-blue-700 flex items-center gap-1 transition">
+                <span>See stack in projects</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+                      <span class="tech-dot bg-[#00c4cc]"></span>Canva
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Development Tools -->
+                <div>
+                  <h3 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Development Tools</h3>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
+                      <span class="tech-dot bg-[#007acc]"></span>VS Code
+                    </span>
+                    <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
+                      <span class="tech-dot bg-[#f05032]"></span>Git &amp; GitHub
+                    </span>
+                    <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
+                      <span class="tech-dot bg-[#336791]"></span>MySQL
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -476,69 +529,108 @@
         </div>
       </section>
 
-      <!-- EXPERIENCE SECTION (Clean Timeline Architecture) -->
-      <section id="experience" class="py-12 sm:py-14 lg:py-16 border-t border-slate-200/70">
+      <!-- CERTIFICATIONS SECTION -->
+      <section id="certifications" class="py-12 sm:py-14 lg:py-16 border-t border-slate-200/70">
         <div class="mb-6 sm:mb-8">
-          <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-slate-900">Experience</h2>
-          <p class="text-xs sm:text-sm text-slate-500 mt-1">Professional track record and engineering impact.</p>
+          <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-slate-900">Certifications</h2>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1">Credentials, technical milestones, and specialized coursework.</p>
         </div>
 
-        <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-xs space-y-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
 
-          <!-- Experience Item 1 Placeholder -->
-          <div class="timeline-item">
-            <span class="timeline-dot"></span>
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-1">
-              <h3 class="text-base font-bold text-slate-900">
-                Job Position Title One · <span class="text-blue-600 font-semibold">Company / Organization</span>
-              </h3>
-              <time class="text-xs font-semibold text-slate-500 tabular-nums">2024 to Present</time>
+          <!-- Certification 1 Placeholder -->
+          <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col justify-between hover:border-slate-300 transition group">
+            <div>
+              <div class="flex items-start justify-between gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                  <i data-lucide="award" class="w-5 h-5"></i>
+                </div>
+                <span class="text-[11px] font-mono text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-full font-medium">2024</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 mb-1">Certification Name 1</h3>
+              <p class="text-xs font-semibold text-blue-600 mb-2">Issuing Organization / Provider</p>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Describe the key competencies validated by this credential, including technical coursework, exams passed, or practical skills acquired.
+              </p>
             </div>
-            <p class="text-slate-600 text-sm leading-relaxed mb-3">
-              Describe your key achievements, responsibilities, systems maintained, and quantifiable impact delivered in this role.
-            </p>
-            <div class="flex flex-wrap gap-2 text-[11px] font-mono text-slate-600">
-              <span class="bg-slate-100 px-2 py-0.5 rounded">Skill / Tool</span>
-              <span class="bg-slate-100 px-2 py-0.5 rounded">Framework</span>
-              <span class="bg-slate-100 px-2 py-0.5 rounded">Platform</span>
+            <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs">
+              <span class="text-[11px] font-mono text-slate-400">Credential ID: Placeholder</span>
+              <a href="#" class="font-semibold text-blue-600 hover:text-blue-700 inline-flex items-center gap-1 transition">
+                <span>View Certificate</span>
+                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+              </a>
             </div>
           </div>
 
-          <!-- Experience Item 2 Placeholder -->
-          <div class="timeline-item">
-            <span class="timeline-dot"></span>
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-1">
-              <h3 class="text-base font-bold text-slate-900">
-                Job Position Title Two · <span class="text-blue-600 font-semibold">Company / Organization</span>
-              </h3>
-              <time class="text-xs font-semibold text-slate-500 tabular-nums">2022 to 2024</time>
+          <!-- Certification 2 Placeholder -->
+          <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col justify-between hover:border-slate-300 transition group">
+            <div>
+              <div class="flex items-start justify-between gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+                  <i data-lucide="award" class="w-5 h-5"></i>
+                </div>
+                <span class="text-[11px] font-mono text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-full font-medium">2024</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 mb-1">Certification Name 2</h3>
+              <p class="text-xs font-semibold text-emerald-600 mb-2">Issuing Organization / Provider</p>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Summary of the certification objectives, tools covered (e.g. Java, Python, networking, or database fundamentals), and key milestones.
+              </p>
             </div>
-            <p class="text-slate-600 text-sm leading-relaxed mb-3">
-              Outline cross-functional collaboration, technical deliverables shipped, architecture workflows, and features engineered.
-            </p>
-            <div class="flex flex-wrap gap-2 text-[11px] font-mono text-slate-600">
-              <span class="bg-slate-100 px-2 py-0.5 rounded">Skill / Tool</span>
-              <span class="bg-slate-100 px-2 py-0.5 rounded">Framework</span>
-              <span class="bg-slate-100 px-2 py-0.5 rounded">Platform</span>
+            <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs">
+              <span class="text-[11px] font-mono text-slate-400">Credential ID: Placeholder</span>
+              <a href="#" class="font-semibold text-blue-600 hover:text-blue-700 inline-flex items-center gap-1 transition">
+                <span>View Certificate</span>
+                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+              </a>
             </div>
           </div>
 
-          <!-- Experience Item 3 Placeholder -->
-          <div class="timeline-item">
-            <span class="timeline-dot"></span>
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-1">
-              <h3 class="text-base font-bold text-slate-900">
-                Job Position Title Three · <span class="text-blue-600 font-semibold">Company / Organization</span>
-              </h3>
-              <time class="text-xs font-semibold text-slate-500 tabular-nums">2020 to 2022</time>
+          <!-- Certification 3 Placeholder -->
+          <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col justify-between hover:border-slate-300 transition group">
+            <div>
+              <div class="flex items-start justify-between gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center shrink-0">
+                  <i data-lucide="award" class="w-5 h-5"></i>
+                </div>
+                <span class="text-[11px] font-mono text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-full font-medium">2023</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 mb-1">Certification Name 3</h3>
+              <p class="text-xs font-semibold text-purple-600 mb-2">Issuing Organization / Institution</p>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Foundational IT credentials, workshops, or academic training certificates completed during your BSIT degree.
+              </p>
             </div>
-            <p class="text-slate-600 text-sm leading-relaxed mb-3">
-              Summary of foundational projects, UI development, test suites, or initial engineering contributions.
-            </p>
-            <div class="flex flex-wrap gap-2 text-[11px] font-mono text-slate-600">
-              <span class="bg-slate-100 px-2 py-0.5 rounded">Skill / Tool</span>
-              <span class="bg-slate-100 px-2 py-0.5 rounded">Framework</span>
-              <span class="bg-slate-100 px-2 py-0.5 rounded">Platform</span>
+            <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs">
+              <span class="text-[11px] font-mono text-slate-400">Credential ID: Placeholder</span>
+              <a href="#" class="font-semibold text-blue-600 hover:text-blue-700 inline-flex items-center gap-1 transition">
+                <span>View Certificate</span>
+                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Certification 4 Placeholder -->
+          <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col justify-between hover:border-slate-300 transition group">
+            <div>
+              <div class="flex items-start justify-between gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
+                  <i data-lucide="award" class="w-5 h-5"></i>
+                </div>
+                <span class="text-[11px] font-mono text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-full font-medium">2023</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 mb-1">Certification Name 4</h3>
+              <p class="text-xs font-semibold text-amber-600 mb-2">Issuing Organization / Institution</p>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Additional certificate for coursework or seminars attended in software development, cybersecurity, or cloud tools.
+              </p>
+            </div>
+            <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs">
+              <span class="text-[11px] font-mono text-slate-400">Credential ID: Placeholder</span>
+              <a href="#" class="font-semibold text-blue-600 hover:text-blue-700 inline-flex items-center gap-1 transition">
+                <span>View Certificate</span>
+                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+              </a>
             </div>
           </div>
 
@@ -749,7 +841,30 @@
         </div>
       </section>
 
-
+      <!-- FOOTER -->
+      <footer class="pt-10 pb-6 mt-12 border-t border-slate-200/80 text-xs text-slate-500">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div>
+            <p class="font-bold text-slate-900 text-sm">Sean Manuel Chua</p>
+            <p class="text-slate-500 text-xs mt-0.5">4th-Year BSIT Student · <a href="mailto:chuaseanmanuel3@gmail.com" class="text-blue-600 hover:underline">chuaseanmanuel3@gmail.com</a></p>
+          </div>
+          <div class="flex items-center gap-4 text-xs font-medium">
+            <a href="https://www.facebook.com/sean.chua.908579" target="_blank" rel="noopener noreferrer" class="text-slate-600 hover:text-blue-600 transition">Facebook</a>
+            <span class="text-slate-300">·</span>
+            <a href="https://www.instagram.com/oni.seanti/" target="_blank" rel="noopener noreferrer" class="text-slate-600 hover:text-pink-600 transition">Instagram</a>
+            <span class="text-slate-300">·</span>
+            <a href="mailto:chuaseanmanuel3@gmail.com" class="text-slate-600 hover:text-red-500 transition">Email</a>
+            <span class="text-slate-300">·</span>
+            <a href="#home" class="text-blue-600 font-semibold hover:underline inline-flex items-center gap-1">
+              <span>Back to top</span>
+              <i data-lucide="arrow-up" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+        <p class="text-center sm:text-left text-slate-400 text-[11px] mt-6">
+          © 2026 Sean Manuel Chua. All rights reserved.
+        </p>
+      </footer>
 
     </main>
   </div>
