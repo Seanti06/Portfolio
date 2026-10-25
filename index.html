@@ -6,12 +6,20 @@
   <title>Sean Manuel Chua · Portfolio</title>
   <meta name="description" content="Portfolio of Sean Manuel Chua, building clean, scalable, and user-focused web applications." />
 
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
+          fontFamily: {
+            sans: ['Roboto', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
           colors: {
             brand: {
               50: '#eff6ff',
@@ -91,33 +99,49 @@
         <!-- Name -->
         <h1 class="text-xl font-bold tracking-tight text-slate-900 leading-tight">Sean Manuel Chua</h1>
 
-        <!-- Social Links: Gmail, Facebook, Instagram -->
-        <div class="flex items-center gap-2 mt-4 text-slate-600">
-          <!-- Gmail -->
-          <a href="mailto:chuaseanmanuel3@gmail.com" class="p-2 rounded-lg hover:bg-slate-100 hover:text-red-500 transition" title="Email: chuaseanmanuel3@gmail.com" aria-label="Email Sean">
-            <svg class="w-4.5 h-4.5" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-            </svg>
-          </a>
-          <!-- Facebook -->
-          <a href="https://www.facebook.com/sean.chua.908579" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg hover:bg-slate-100 hover:text-[#1877F2] transition" title="Facebook: sean.chua.908579" aria-label="Facebook Profile">
-            <svg class="w-4.5 h-4.5" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-            </svg>
-          </a>
-          <!-- Instagram -->
-          <a href="https://www.instagram.com/oni.seanti/" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg hover:bg-slate-100 hover:text-[#E4405F] transition" title="Instagram: @oni.seanti" aria-label="Instagram Profile">
-            <svg class="w-4.5 h-4.5" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-            </svg>
-          </a>
-          <!-- Copy Email Tooltip Button -->
-          <button id="copy-email-btn" class="p-2 rounded-lg hover:bg-slate-100 hover:text-blue-600 transition relative group" title="Copy email address" aria-label="Copy email address">
-            <i data-lucide="copy" class="w-4.5 h-4.5"></i>
-            <span id="copy-email-tooltip" class="absolute left-1/2 -translate-x-1/2 -top-8 px-2 py-1 text-[10px] font-semibold text-white bg-slate-900 rounded shadow-md opacity-0 pointer-events-none transition-opacity duration-200 whitespace-nowrap">
-              Copy email
-            </span>
-          </button>
+        <!-- About Me / Role Summary (Sidebar) -->
+        <div class="mt-2.5 space-y-2">
+          <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-blue-50 text-blue-700 border border-blue-200/60 shadow-2xs">
+            <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+            <span>4th-Year BSIT Student</span>
+          </div>
+          <p class="text-xs text-slate-600 leading-relaxed font-normal">
+            Building software applications with Java, Python, and web fundamentals. Focused on practical problem solving and clean code.
+          </p>
+        </div>
+
+        <!-- Social Links & Copy Email Dock -->
+        <div class="flex items-center justify-between mt-4 p-1.5 bg-slate-50/80 rounded-xl border border-slate-200/70 text-slate-600">
+          <div class="flex items-center gap-1">
+            <!-- Gmail -->
+            <a href="mailto:chuaseanmanuel3@gmail.com" class="p-2 rounded-lg hover:bg-white hover:text-red-500 hover:shadow-xs transition" title="Email: chuaseanmanuel3@gmail.com" aria-label="Email Sean">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+              </svg>
+            </a>
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/sean.chua.908579" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg hover:bg-white hover:text-[#1877F2] hover:shadow-xs transition" title="Facebook: sean.chua.908579" aria-label="Facebook Profile">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/oni.seanti/" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg hover:bg-white hover:text-[#E4405F] hover:shadow-xs transition" title="Instagram: @oni.seanti" aria-label="Instagram Profile">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </a>
+          </div>
+
+          <div class="flex items-center pl-1 border-l border-slate-200">
+            <!-- Copy Email Tooltip Button -->
+            <button id="copy-email-btn" class="p-2 rounded-lg hover:bg-white hover:text-blue-600 hover:shadow-xs transition relative group" title="Copy email address" aria-label="Copy email address">
+              <i data-lucide="copy" class="w-4 h-4"></i>
+              <span id="copy-email-tooltip" class="absolute left-1/2 -translate-x-1/2 -top-8 px-2 py-1 text-[10px] font-semibold text-white bg-slate-900 rounded shadow-md opacity-0 pointer-events-none transition-opacity duration-200 whitespace-nowrap">
+                Copy email
+              </span>
+            </button>
+          </div>
         </div>
 
         <!-- Navigation Links -->
@@ -136,7 +160,7 @@
           </a>
           <a href="#skills" class="nav-link" data-section="skills">
             <i data-lucide="code-2" class="w-4.5 h-4.5"></i>
-            <span>Skills</span>
+            <span>Tools &amp; Skills</span>
           </a>
           <a href="#experience" class="nav-link" data-section="experience">
             <i data-lucide="briefcase" class="w-4.5 h-4.5"></i>
@@ -190,7 +214,7 @@
               Sean Manuel Chua
             </h1>
             <p class="text-slate-600 text-base sm:text-lg leading-relaxed max-w-xl mb-6 sm:mb-8">
-              I build clean, scalable, and user-focused web applications. Turning ideas into digital experiences with modern web technologies and resilient architecture.
+              4th-year BSIT student passionate about software engineering and web development. Building practical applications with Java, Python, JavaScript, and modern web technologies.
             </p>
 
             <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
@@ -224,8 +248,93 @@
         </div>
       </section>
 
+      <!-- ABOUT ME & TOOLS AND SKILLS SECTION (Side-by-side matching screenshot) -->
+      <section class="py-12 sm:py-14 lg:py-16 border-t border-slate-200/70">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
+
+          <!-- About Me Card (Left 6 cols) -->
+          <div id="about" class="lg:col-span-6 bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col justify-between">
+            <div>
+              <h2 class="text-xl font-bold tracking-tight text-slate-900 mb-4">About Me</h2>
+              <div class="space-y-3.5 text-slate-600 text-sm leading-relaxed">
+                <p>
+                  I am a 4th-year Bachelor of Science in Information Technology (BSIT) student with a passion for software development, problem-solving, and building practical digital solutions.
+                </p>
+                <p>
+                  Currently expanding my expertise in core programming languages like <strong class="text-slate-800 font-semibold">Java</strong>, <strong class="text-slate-800 font-semibold">Python</strong>, and <strong class="text-slate-800 font-semibold">JavaScript</strong>, alongside foundational <strong class="text-slate-800 font-semibold">web development</strong> using HTML and CSS.
+                </p>
+                <p class="text-slate-500 text-xs pt-1">
+                  I enjoy translating academic coursework and practical projects into working, user-friendly applications while actively preparing for internship and junior software engineering roles.
+                </p>
+              </div>
+            </div>
+
+            <!-- Focus areas -->
+            <div class="pt-6 mt-6 border-t border-slate-100 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-slate-600 font-medium">
+              <span class="inline-flex items-center gap-1.5">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-blue-600"></i> Java &amp; Python
+              </span>
+              <span class="inline-flex items-center gap-1.5">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-blue-600"></i> HTML, CSS, JavaScript
+              </span>
+              <span class="inline-flex items-center gap-1.5">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-blue-600"></i> IT Fundamentals
+              </span>
+            </div>
+          </div>
+
+          <!-- Tools & Skills Card (Right 6 cols) -->
+          <div id="skills" class="lg:col-span-6 bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-xl font-bold tracking-tight text-slate-900">Tools and Skills</h2>
+                <span class="text-[11px] font-mono text-slate-400">Core Stack</span>
+              </div>
+              <p class="text-slate-500 text-xs mb-5">Languages, web fundamentals, and development tools:</p>
+              
+              <!-- Skills & Tools Pills -->
+              <div class="flex flex-wrap gap-2">
+                <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
+                  <span class="tech-dot bg-[#ea2d2e]"></span>Java
+                </span>
+                <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
+                  <span class="tech-dot bg-[#3776ab]"></span>Python
+                </span>
+                <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
+                  <span class="tech-dot bg-[#e34f26]"></span>HTML
+                </span>
+                <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
+                  <span class="tech-dot bg-[#1572b6]"></span>CSS
+                </span>
+                <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
+                  <span class="tech-dot bg-[#f7df1e]"></span>JavaScript
+                </span>
+                <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
+                  <span class="tech-dot bg-[#007acc]"></span>VS Code
+                </span>
+                <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
+                  <span class="tech-dot bg-[#f05032]"></span>Git &amp; GitHub
+                </span>
+                <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
+                  <span class="tech-dot bg-[#336791]"></span>MySQL
+                </span>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-5 border-t border-slate-100 flex items-center justify-between text-xs">
+              <span class="text-slate-400">Continuous learner</span>
+              <a href="#projects" class="font-semibold text-blue-600 hover:text-blue-700 flex items-center gap-1 transition">
+                <span>See stack in projects</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
       <!-- SELECTED PROJECTS SECTION -->
-      <section id="projects" class="py-10 sm:py-12 lg:py-14 border-t border-slate-200/70">
+      <section id="projects" class="py-12 sm:py-14 lg:py-16 border-t border-slate-200/70">
         
         <div class="flex items-center justify-between mb-6 sm:mb-8">
           <div>
@@ -239,7 +348,7 @@
         </div>
 
         <!-- 3 Project Cards Grid (Placeholders) -->
-        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-7">
 
           <!-- Project 1 Placeholder -->
           <div class="project-card bg-white rounded-2xl border border-slate-200/80 overflow-hidden flex flex-col justify-between shadow-xs">
@@ -367,111 +476,14 @@
         </div>
       </section>
 
-      <!-- ABOUT ME & SKILLS SECTION (Side-by-side matching screenshot) -->
-      <section class="py-10 sm:py-12 lg:py-14 border-t border-slate-200/70">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
-
-          <!-- About Me Card (Left 6 cols) -->
-          <div id="about" class="lg:col-span-6 bg-white p-6 sm:p-7 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col justify-between">
-            <div>
-              <h2 class="text-xl font-bold tracking-tight text-slate-900 mb-4">About Me</h2>
-              <div class="space-y-3.5 text-slate-600 text-sm leading-relaxed">
-                <p>
-                  I build clean, user-centric web applications and modern digital products. I bridge the gap between thoughtful interface design and solid backend systems.
-                </p>
-                <p>
-                  My engineering philosophy focuses on speed by default, accessible markup, type safety, and maintainable software architecture that scales reliably as user traffic grows.
-                </p>
-                <p class="text-slate-500 text-xs pt-1">
-                  When not writing code, I enjoy exploring developer tooling, contributing to open-source software, and refining user interface interactions.
-                </p>
-              </div>
-            </div>
-
-            <!-- Focus areas -->
-            <div class="pt-6 mt-6 border-t border-slate-100 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-slate-600 font-medium">
-              <span class="inline-flex items-center gap-1.5">
-                <i data-lucide="check" class="w-3.5 h-3.5 text-blue-600"></i> Full-Stack Architecture
-              </span>
-              <span class="inline-flex items-center gap-1.5">
-                <i data-lucide="check" class="w-3.5 h-3.5 text-blue-600"></i> Modern TypeScript
-              </span>
-              <span class="inline-flex items-center gap-1.5">
-                <i data-lucide="check" class="w-3.5 h-3.5 text-blue-600"></i> High-Perf UI Systems
-              </span>
-            </div>
-          </div>
-
-          <!-- Skills Card (Right 6 cols) -->
-          <div id="skills" class="lg:col-span-6 bg-white p-6 sm:p-7 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col justify-between">
-            <div>
-              <div class="flex items-center justify-between mb-4">
-                <h2 class="text-xl font-bold tracking-tight text-slate-900">Skills</h2>
-                <span class="text-[11px] font-mono text-slate-400">Core Stack</span>
-              </div>
-              <p class="text-slate-500 text-xs mb-5">Technologies and toolchains I work with daily:</p>
-              
-              <!-- Skills Placeholders (Slot in your actual skills) -->
-              <div class="flex flex-wrap gap-2">
-                <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
-                  <span class="tech-dot bg-[#3178c6]"></span>Skill Name 1
-                </span>
-                <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
-                  <span class="tech-dot bg-[#61dafb]"></span>Skill Name 2
-                </span>
-                <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
-                  <span class="tech-dot bg-[#38bdf8]"></span>Skill Name 3
-                </span>
-                <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
-                  <span class="tech-dot bg-[#5fa04e]"></span>Skill Name 4
-                </span>
-                <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
-                  <span class="tech-dot bg-[#f7df1e]"></span>Skill Name 5
-                </span>
-                <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
-                  <span class="tech-dot bg-[#2563eb]"></span>Skill Name 6
-                </span>
-                <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
-                  <span class="tech-dot bg-[#336791]"></span>Skill Name 7
-                </span>
-                <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
-                  <span class="tech-dot bg-[#10aa50]"></span>Skill Name 8
-                </span>
-                <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
-                  <span class="tech-dot bg-[#e535ab]"></span>Skill Name 9
-                </span>
-                <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
-                  <span class="tech-dot bg-[#2496ed]"></span>Skill Name 10
-                </span>
-                <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
-                  <span class="tech-dot bg-[#f05032]"></span>Skill Name 11
-                </span>
-                <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
-                  <span class="tech-dot bg-[#ff9900]"></span>Skill Name 12
-                </span>
-              </div>
-            </div>
-
-            <div class="mt-6 pt-5 border-t border-slate-100 flex items-center justify-between text-xs">
-              <span class="text-slate-400">Continuous learner</span>
-              <a href="#projects" class="font-semibold text-blue-600 hover:text-blue-700 flex items-center gap-1 transition">
-                <span>See stack in projects</span>
-                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-              </a>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
       <!-- EXPERIENCE SECTION (Clean Timeline Architecture) -->
-      <section id="experience" class="py-10 sm:py-12 lg:py-14 border-t border-slate-200/70">
+      <section id="experience" class="py-12 sm:py-14 lg:py-16 border-t border-slate-200/70">
         <div class="mb-6 sm:mb-8">
           <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-slate-900">Experience</h2>
           <p class="text-xs sm:text-sm text-slate-500 mt-1">Professional track record and engineering impact.</p>
         </div>
 
-        <div class="bg-white p-6 sm:p-7 rounded-2xl border border-slate-200/80 shadow-xs space-y-8">
+        <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-xs space-y-8">
 
           <!-- Experience Item 1 Placeholder -->
           <div class="timeline-item">
@@ -534,16 +546,16 @@
       </section>
 
       <!-- TESTIMONIALS SECTION -->
-      <section id="testimonials" class="py-10 sm:py-12 lg:py-14 border-t border-slate-200/70">
+      <section id="testimonials" class="py-12 sm:py-14 lg:py-16 border-t border-slate-200/70">
         <div class="mb-6 sm:mb-8">
           <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-slate-900">Testimonials</h2>
           <p class="text-xs sm:text-sm text-slate-500 mt-1">Endorsements from engineering leads and product partners.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
 
           <!-- Review 1 Placeholder -->
-          <div class="bg-white p-6 sm:p-7 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col justify-between">
+          <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col justify-between">
             <div>
               <div class="flex items-center gap-1 text-amber-400 mb-4">
                 <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
@@ -568,7 +580,7 @@
           </div>
 
           <!-- Review 2 Placeholder -->
-          <div class="bg-white p-6 sm:p-7 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col justify-between">
+          <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col justify-between">
             <div>
               <div class="flex items-center gap-1 text-amber-400 mb-4">
                 <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
@@ -596,7 +608,7 @@
       </section>
 
       <!-- CONTACT SECTION -->
-      <section id="contact" class="py-10 sm:py-12 lg:py-14 border-t border-slate-200/70">
+      <section id="contact" class="py-12 sm:py-14 lg:py-16 border-t border-slate-200/70">
         <div class="mb-6 sm:mb-8">
           <span class="text-xs font-bold text-blue-600 tracking-widest uppercase">LET'S CONNECT</span>
           <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 mt-1">Get in Touch</h2>
@@ -606,7 +618,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
 
           <!-- Left Info Column: Direct Channels (Gmail, Facebook, Instagram) -->
-          <div class="lg:col-span-5 bg-white p-6 sm:p-7 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col justify-between">
+          <div class="lg:col-span-5 bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col justify-between">
             <div class="space-y-5">
               
               <!-- Gmail -->
@@ -666,7 +678,7 @@
           </div>
 
           <!-- Right Contact Form (7 cols) -->
-          <div class="lg:col-span-7 bg-white p-6 sm:p-7 rounded-2xl border border-slate-200/80 shadow-xs">
+          <div class="lg:col-span-7 bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-xs">
             <form id="contact-form" class="space-y-4">
               
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
