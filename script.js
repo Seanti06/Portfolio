@@ -4,7 +4,47 @@ document.addEventListener('DOMContentLoaded', () => {
     window.lucide.createIcons();
   }
 
-  // 2. Mobile Navigation Drawer Controls
+  // 2. Live Local Clock in Sidebar Footer
+  const timeDisplay = document.getElementById('live-time-display');
+  function updateClock() {
+    if (!timeDisplay) return;
+    const now = new Date();
+    const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
+    timeDisplay.textContent = `${timeStr} (Local)`;
+  }
+  updateClock();
+  setInterval(updateClock, 1000);
+
+  // 3. One-Click Copy Email with Tooltip
+  const copyEmailBtn = document.getElementById('copy-email-btn');
+  const copyTooltip = document.getElementById('copy-email-tooltip');
+  if (copyEmailBtn && copyTooltip) {
+    const emailToCopy = "your.email@example.com";
+    
+    copyEmailBtn.addEventListener('mouseenter', () => {
+      copyTooltip.textContent = "Copy email";
+      copyTooltip.classList.remove('opacity-0');
+    });
+
+    copyEmailBtn.addEventListener('mouseleave', () => {
+      copyTooltip.classList.add('opacity-0');
+    });
+
+    copyEmailBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(emailToCopy);
+        copyTooltip.textContent = "Copied to clipboard!";
+        copyTooltip.classList.remove('opacity-0');
+        setTimeout(() => {
+          copyTooltip.classList.add('opacity-0');
+        }, 2000);
+      } catch (err) {
+        window.location.href = `mailto:${emailToCopy}`;
+      }
+    });
+  }
+
+  // 4. Mobile Navigation Drawer Controls
   const sidebar = document.getElementById('sidebar');
   const mobileToggle = document.getElementById('mobile-menu-toggle');
   const mobileClose = document.getElementById('mobile-close-btn');
@@ -31,7 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (mobileClose) mobileClose.addEventListener('click', closeMobileMenu);
   if (mobileBackdrop) mobileBackdrop.addEventListener('click', closeMobileMenu);
 
-  // Close menu on link click (mobile)
   navLinks.forEach(link => {
     link.addEventListener('click', () => {
       if (window.innerWidth < 1024) {
@@ -40,12 +79,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 3. ScrollSpy Navigation Highlighting
+  // 5. ScrollSpy Navigation Highlighting
   const sections = document.querySelectorAll('section[id], div[id="about"], div[id="skills"]');
   
   function updateActiveNavLink() {
     let currentSectionId = 'home';
-    const scrollPos = window.scrollY + 180;
+    const scrollPos = window.scrollY + 200;
 
     sections.forEach(sec => {
       const top = sec.offsetTop;
@@ -69,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', updateActiveNavLink, { passive: true });
   updateActiveNavLink();
 
-  // 4. "View All Projects" Modal
+  // 6. "View All Projects" Modal
   const modal = document.getElementById('projects-modal');
   const viewAllBtn = document.getElementById('view-all-projects-btn');
   const closeModalBtn = document.getElementById('close-modal-btn');
@@ -79,7 +118,8 @@ document.addEventListener('DOMContentLoaded', () => {
     modal.classList.remove('hidden');
     setTimeout(() => {
       modal.classList.remove('opacity-0');
-      modal.querySelector('.transform').classList.remove('scale-95');
+      const inner = modal.querySelector('.transform');
+      if (inner) inner.classList.remove('scale-95');
     }, 10);
     document.body.classList.add('overflow-hidden');
   }
@@ -87,7 +127,8 @@ document.addEventListener('DOMContentLoaded', () => {
   function closeModal() {
     if (!modal) return;
     modal.classList.add('opacity-0');
-    modal.querySelector('.transform').classList.add('scale-95');
+    const inner = modal.querySelector('.transform');
+    if (inner) inner.classList.add('scale-95');
     setTimeout(() => {
       modal.classList.add('hidden');
       document.body.classList.remove('overflow-hidden');
@@ -109,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 5. Contact Form Submission Feedback
+  // 7. Contact Form Submission
   const contactForm = document.getElementById('contact-form');
   const formFeedback = document.getElementById('form-feedback');
   const submitBtn = document.getElementById('submit-btn');
@@ -120,9 +161,8 @@ document.addEventListener('DOMContentLoaded', () => {
       
       const originalText = submitBtn.innerHTML;
       submitBtn.disabled = true;
-      submitBtn.innerHTML = `<span>Sending...</span>`;
+      submitBtn.innerHTML = `<span>Sending message...</span>`;
 
-      // Simulate sending delay for realistic UX
       setTimeout(() => {
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalText;
@@ -134,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
           formFeedback.classList.add('hidden');
         }, 5000);
-      }, 700);
+      }, 600);
     });
   }
 });
