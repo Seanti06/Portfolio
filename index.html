@@ -18,17 +18,6 @@
         extend: {
           fontFamily: {
             sans: ['Roboto', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
-            mono: ['"JetBrains Mono"', 'monospace'],
-          },
-          colors: {
-            brand: {
-              50: '#eff6ff',
-              100: '#dbeafe',
-              200: '#bfdbfe',
-              500: '#3b82f6',
-              600: '#2563eb',
-              700: '#1d4ed8',
-            }
           }
         }
       }
@@ -179,7 +168,7 @@
 
       <!-- Sidebar Footer with Live Local Time -->
       <div class="pt-6 border-t border-slate-100 text-xs text-slate-500 space-y-2">
-        <div class="flex items-center gap-2 text-[11px] font-mono text-slate-400">
+        <div class="flex items-center gap-2 text-xs font-medium text-slate-400">
           <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
           <span id="live-time-display">Local Time: --:-- --</span>
         </div>
@@ -232,7 +221,7 @@
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-slate-900/10 via-transparent to-transparent pointer-events-none"></div>
-              <div class="absolute bottom-3 left-3 bg-slate-900/80 backdrop-blur-xs px-2.5 py-1 rounded-md text-[11px] font-mono text-white flex items-center gap-1.5">
+              <div class="absolute bottom-3 left-3 bg-slate-900/80 backdrop-blur-xs px-2.5 py-1 rounded-md text-xs font-medium text-white flex items-center gap-1.5">
                 <span class="w-2 h-2 rounded-full bg-blue-400"></span>
                 <span>Workstation Placeholder</span>
               </div>
@@ -369,7 +358,7 @@
                   alt="Project One Preview" 
                   class="project-img w-full h-full object-cover"
                 />
-                <span class="absolute top-2.5 right-2.5 bg-slate-900/80 backdrop-blur-xs text-[10px] font-mono font-medium text-emerald-400 border border-slate-700/80 px-2 py-0.5 rounded-full">
+                <span class="absolute top-2.5 right-2.5 bg-slate-900/80 backdrop-blur-xs text-[11px] font-semibold text-emerald-400 border border-slate-700/80 px-2.5 py-0.5 rounded-full">
                   ● Featured
                 </span>
               </div>
@@ -410,7 +399,7 @@
                   alt="Project Two Preview" 
                   class="project-img w-full h-full object-cover"
                 />
-                <span class="absolute top-2.5 right-2.5 bg-white/90 backdrop-blur-xs text-[10px] font-mono font-medium text-blue-600 border border-slate-200 px-2 py-0.5 rounded-full">
+                <span class="absolute top-2.5 right-2.5 bg-white/90 backdrop-blur-xs text-[11px] font-semibold text-blue-600 border border-slate-200 px-2.5 py-0.5 rounded-full">
                   Application
                 </span>
               </div>
@@ -451,7 +440,7 @@
                   alt="Project Three Preview" 
                   class="project-img w-full h-full object-cover"
                 />
-                <span class="absolute top-2.5 right-2.5 bg-white/90 backdrop-blur-xs text-[10px] font-mono font-medium text-purple-600 border border-slate-200 px-2 py-0.5 rounded-full">
+                <span class="absolute top-2.5 right-2.5 bg-white/90 backdrop-blur-xs text-[11px] font-semibold text-purple-600 border border-slate-200 px-2.5 py-0.5 rounded-full">
                   System
                 </span>
               </div>
@@ -847,7 +836,7 @@
           <div>
             <div class="flex items-center gap-2">
               <h4 class="font-bold text-slate-900 text-sm">Project Title One</h4>
-              <span class="text-[10px] font-mono bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-full font-semibold">Active</span>
+              <span class="text-[11px] font-semibold bg-emerald-50 text-emerald-700 px-2.5 py-0.5 rounded-full">Active</span>
             </div>
             <p class="text-xs text-slate-600 mt-1">Project description placeholder. Outline the core features and problem solved.</p>
             <span class="inline-block mt-1.5 text-[11px] font-medium text-slate-500">Technology 1 · Technology 2 · Framework</span>
@@ -862,7 +851,7 @@
           <div>
             <div class="flex items-center gap-2">
               <h4 class="font-bold text-slate-900 text-sm">Project Title Two</h4>
-              <span class="text-[10px] font-mono bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full font-semibold">App</span>
+              <span class="text-[11px] font-semibold bg-blue-50 text-blue-700 px-2.5 py-0.5 rounded-full">App</span>
             </div>
             <p class="text-xs text-slate-600 mt-1">Project description placeholder. Outline the key technical architecture.</p>
             <span class="inline-block mt-1.5 text-[11px] font-medium text-slate-500">Technology 1 · Technology 2 · Database</span>
@@ -877,7 +866,7 @@
           <div>
             <div class="flex items-center gap-2">
               <h4 class="font-bold text-slate-900 text-sm">Project Title Three</h4>
-              <span class="text-[10px] font-mono bg-purple-50 text-purple-700 px-2 py-0.5 rounded-full font-semibold">Platform</span>
+              <span class="text-[11px] font-semibold bg-purple-50 text-purple-700 px-2.5 py-0.5 rounded-full">Platform</span>
             </div>
             <p class="text-xs text-slate-600 mt-1">Project description placeholder. Detail user experience and deployment.</p>
             <span class="inline-block mt-1.5 text-[11px] font-medium text-slate-500">Technology 1 · Technology 2 · Cloud</span>
@@ -892,7 +881,7 @@
           <div>
             <div class="flex items-center gap-2">
               <h4 class="font-bold text-slate-900 text-sm">Project Title Four</h4>
-              <span class="text-[10px] font-mono bg-amber-50 text-amber-700 px-2 py-0.5 rounded-full font-semibold">Beta</span>
+              <span class="text-[11px] font-semibold bg-amber-50 text-amber-700 px-2.5 py-0.5 rounded-full">Beta</span>
             </div>
             <p class="text-xs text-slate-600 mt-1">Additional project placeholder for extra projects or open source repositories.</p>
             <span class="inline-block mt-1.5 text-[11px] font-medium text-slate-500">Technology 1 · Technology 2 · Framework</span>

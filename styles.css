@@ -1,21 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400;1,500;1,700&display=swap');
-
-:root {
-  --primary-blue: #2563eb;
-  --primary-blue-hover: #1d4ed8;
-  --bg-page: #f8fafc;
-  --card-bg: #ffffff;
-  --border-subtle: rgba(226, 232, 240, 0.85);
-  --border-hover: rgba(148, 163, 184, 0.5);
-  
-  /* Standard Spacing System */
-  --space-unit: 0.25rem; /* 4px base */
-  --section-py-mobile: 3rem;     /* 48px */
-  --section-py-tablet: 3.5rem;   /* 56px */
-  --section-py-desktop: 4rem;    /* 64px */
-  --card-p-mobile: 1.5rem;       /* 24px */
-  --card-p-desktop: 2rem;        /* 32px */
-}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 
 html {
   scroll-behavior: smooth;
@@ -26,7 +9,7 @@ html {
 }
 
 body {
-  background-color: var(--bg-page);
+  background-color: #f8fafc;
   color: #0f172a;
   overflow-x: hidden;
   font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -97,12 +80,6 @@ p {
   background: #94a3b8;
 }
 
-/* Tabular numerals for dates, stats, and measurements */
-.tabular-nums, time, .stat-num {
-  font-variant-numeric: tabular-nums;
-  font-feature-settings: "tnum";
-}
-
 /* Smooth section anchor offset for sticky headers on desktop */
 section {
   scroll-margin-top: 3rem;
@@ -123,7 +100,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 /* Touch targets: min 44px on touch screens */
 @media (hover: none) and (pointer: coarse) {
-  .nav-link, button, a.btn-touch {
+  .nav-link, button {
     min-height: 44px;
   }
 }
@@ -232,37 +209,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   border-radius: 50%;
   display: inline-block;
   flex-shrink: 0;
-}
-
-/* Timeline vertical line */
-.timeline-item {
-  position: relative;
-  padding-left: 2rem;
-}
-
-.timeline-item::before {
-  content: '';
-  position: absolute;
-  left: 6px;
-  top: 12px;
-  bottom: -24px;
-  width: 2px;
-  background-color: #e2e8f0;
-}
-
-.timeline-item:last-child::before {
-  display: none;
-}
-
-.timeline-dot {
-  position: absolute;
-  left: 0;
-  top: 6px;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  border: 2px solid #2563eb;
-  background-color: #ffffff;
 }
 
 /* Fade in animation */
