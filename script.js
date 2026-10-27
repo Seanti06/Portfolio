@@ -1,14 +1,6 @@
-// 1. Dark Mode Theme Initialization (Syncs theme before render)
-if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-  document.documentElement.classList.add('dark');
-} else {
-  document.documentElement.classList.remove('dark');
-}
-
-// 2. Tailwind CSS Configuration
+// Tailwind CSS Configuration
 if (typeof tailwind !== 'undefined') {
   tailwind.config = {
-    darkMode: 'class',
     theme: {
       extend: {
         fontFamily: {
@@ -25,19 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.lucide.createIcons();
   }
 
-  // 2. Theme Toggle (Dark / Light Mode)
-  const themeToggleBtns = document.querySelectorAll('.theme-toggle-btn');
-  themeToggleBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const isDark = document.documentElement.classList.toggle('dark');
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      if (window.lucide) {
-        window.lucide.createIcons();
-      }
-    });
-  });
-
-  // 3. One-Click Copy Email with Tooltip
+  // 2. One-Click Copy Email with Tooltip
   const copyEmailBtn = document.getElementById('copy-email-btn');
   const copyTooltip = document.getElementById('copy-email-tooltip');
   if (copyEmailBtn && copyTooltip) {
@@ -66,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 4. Mobile Navigation Drawer Controls
+  // 3. Mobile Navigation Drawer Controls
   const sidebar = document.getElementById('sidebar');
   const mobileToggle = document.getElementById('mobile-menu-toggle');
   const mobileClose = document.getElementById('mobile-close-btn');
@@ -101,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 5. ScrollSpy Navigation Highlighting
+  // 4. ScrollSpy Navigation Highlighting
   const sections = document.querySelectorAll('section[id], div[id="about"], div[id="skills"]');
   
   function updateActiveNavLink() {
@@ -130,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', updateActiveNavLink, { passive: true });
   updateActiveNavLink();
 
-  // 6. "View All Projects" Modal
+  // 5. "View All Projects" Modal
   const modal = document.getElementById('projects-modal');
   const viewAllBtn = document.getElementById('view-all-projects-btn');
   const closeModalBtn = document.getElementById('close-modal-btn');
@@ -172,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 7. Contact Form Submission
+  // 6. Contact Form Submission
   const contactForm = document.getElementById('contact-form');
   const formFeedback = document.getElementById('form-feedback');
   const submitBtn = document.getElementById('submit-btn');
