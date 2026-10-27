@@ -1,19 +1,41 @@
+// 1. Dark Mode Theme Initialization (Syncs theme before render)
+if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+  document.documentElement.classList.add('dark');
+} else {
+  document.documentElement.classList.remove('dark');
+}
+
+// 2. Tailwind CSS Configuration
+if (typeof tailwind !== 'undefined') {
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Lexend', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+        }
+      }
+    }
+  };
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Initialize Lucide Icons
   if (window.lucide) {
     window.lucide.createIcons();
   }
 
-  // 2. Live Local Clock in Sidebar Footer
-  const timeDisplay = document.getElementById('live-time-display');
-  function updateClock() {
-    if (!timeDisplay) return;
-    const now = new Date();
-    const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
-    timeDisplay.textContent = `${timeStr} (Local)`;
-  }
-  updateClock();
-  setInterval(updateClock, 1000);
+  // 2. Theme Toggle (Dark / Light Mode)
+  const themeToggleBtns = document.querySelectorAll('.theme-toggle-btn');
+  themeToggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+    });
+  });
 
   // 3. One-Click Copy Email with Tooltip
   const copyEmailBtn = document.getElementById('copy-email-btn');
