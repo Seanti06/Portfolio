@@ -51,55 +51,42 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileToggle = document.getElementById('mobile-menu-toggle');
   const mobileClose = document.getElementById('mobile-close-btn');
   const mobileBackdrop = document.getElementById('mobile-backdrop');
-  const navLinks = document.querySelectorAll('.nav-link');
 
   function openMobileMenu() {
+    if (!sidebar || !mobileBackdrop) return;
     sidebar.classList.remove('-translate-x-full');
     mobileBackdrop.classList.remove('hidden');
     setTimeout(() => mobileBackdrop.classList.remove('opacity-0'), 10);
-    document.body.classList.add('overflow-hidden', 'lg:overflow-auto');
+    document.body.classList.add('overflow-hidden');
   }
 
   function closeMobileMenu() {
+    if (!sidebar || !mobileBackdrop) return;
     sidebar.classList.add('-translate-x-full');
     mobileBackdrop.classList.add('opacity-0');
     setTimeout(() => {
       mobileBackdrop.classList.add('hidden');
     }, 200);
-    document.body.classList.remove('overflow-hidden', 'lg:overflow-auto');
+    document.body.classList.remove('overflow-hidden');
   }
 
   if (mobileToggle) mobileToggle.addEventListener('click', openMobileMenu);
   if (mobileClose) mobileClose.addEventListener('click', closeMobileMenu);
   if (mobileBackdrop) mobileBackdrop.addEventListener('click', closeMobileMenu);
 
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      if (window.innerWidth < 1024) {
-        closeMobileMenu();
-      }
-    });
-  });
+  // 4. Modal Management System
+  const modalOverlays = document.querySelectorAll('.modal-overlay');
+  const openModalBtns = document.querySelectorAll('.open-modal-btn');
+  const closeModalBtns = document.querySelectorAll('.close-modal-btn');
+  const navLinks = document.querySelectorAll('#sidebar-nav .nav-link');
+  const homeNavBtn = document.querySelector('[data-view="home"]');
 
-  // 4. ScrollSpy Navigation Highlighting
-  const sections = document.querySelectorAll('section[id], div[id="about"], div[id="skills"]');
-  
-  function updateActiveNavLink() {
-    let currentSectionId = 'home';
-    const scrollPos = window.scrollY + 200;
-
-    sections.forEach(sec => {
-      const top = sec.offsetTop;
-      const height = sec.offsetHeight;
-      const id = sec.getAttribute('id');
-      if (scrollPos >= top && scrollPos < top + height) {
-        currentSectionId = id;
-      }
-    });
-
+  function setActiveNavLink(targetId) {
     navLinks.forEach(link => {
-      const target = link.getAttribute('data-section');
-      if (target === currentSectionId) {
+      const modalTarget = link.getAttribute('data-target');
+      if (modalTarget === targetId) {
+        link.classList.add('active');
+      } else if (!targetId && link.getAttribute('data-view') === 'home') {
         link.classList.add('active');
       } else {
         link.classList.remove('active');
@@ -107,63 +94,119 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  window.addEventListener('scroll', updateActiveNavLink, { passive: true });
-  updateActiveNavLink();
+  function openModal(modalId) {
+    const targetModal = document.getElementById(modalId);
+    if (!targetModal) return;
 
-  // 5. "View All Projects" Modal
-  const modal = document.getElementById('projects-modal');
-  const viewAllBtn = document.getElementById('view-all-projects-btn');
-  const closeModalBtn = document.getElementById('close-modal-btn');
+    // Close any other open modal first
+    modalOverlays.forEach(m => {
+      if (m !== targetModal && !m.classList.contains('hidden')) {
+        m.classList.add('hidden', 'opacity-0');
+      }
+    });
 
-  function openModal() {
-    if (!modal) return;
-    modal.classList.remove('hidden');
+    targetModal.classList.remove('hidden');
     setTimeout(() => {
-      modal.classList.remove('opacity-0');
-      const inner = modal.querySelector('.transform');
+      targetModal.classList.remove('opacity-0');
+      const inner = targetModal.querySelector('.transform');
       if (inner) inner.classList.remove('scale-95');
     }, 10);
+
     document.body.classList.add('overflow-hidden');
+    setActiveNavLink(modalId);
+
+    // Close mobile drawer if open
+    if (window.innerWidth < 1024) {
+      closeMobileMenu();
+    }
+
+    if (window.lucide) {
+      window.lucide.createIcons();
+    }
   }
 
-  function closeModal() {
-    if (!modal) return;
-    modal.classList.add('opacity-0');
-    const inner = modal.querySelector('.transform');
+  function closeModal(targetModal) {
+    if (!targetModal) return;
+    targetModal.classList.add('opacity-0');
+    const inner = targetModal.querySelector('.transform');
     if (inner) inner.classList.add('scale-95');
+
     setTimeout(() => {
-      modal.classList.add('hidden');
-      document.body.classList.remove('overflow-hidden');
-    }, 250);
+      targetModal.classList.add('hidden');
+      
+      // Check if any other modal is still visible
+      const anyOpen = Array.from(modalOverlays).some(m => !m.classList.contains('hidden'));
+      if (!anyOpen) {
+        document.body.classList.remove('overflow-hidden');
+        setActiveNavLink(null); // Reset to Home active
+      }
+    }, 200);
   }
 
-  if (viewAllBtn) viewAllBtn.addEventListener('click', openModal);
-  if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
-  
-  if (modal) {
+  function closeAllModals() {
+    modalOverlays.forEach(modal => {
+      if (!modal.classList.contains('hidden')) {
+        closeModal(modal);
+      }
+    });
+    setActiveNavLink(null);
+  }
+
+  // Trigger Open Modal buttons
+  openModalBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = btn.getAttribute('data-target');
+      if (targetId) openModal(targetId);
+    });
+  });
+
+  // Trigger Close buttons
+  closeModalBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const parentModal = btn.closest('.modal-overlay');
+      if (parentModal) closeModal(parentModal);
+    });
+  });
+
+  // Clicking backdrop closes modal
+  modalOverlays.forEach(modal => {
     modal.addEventListener('click', (e) => {
-      if (e.target === modal) closeModal();
+      if (e.target === modal) {
+        closeModal(modal);
+      }
+    });
+  });
+
+  // Home Nav Link closes all modals
+  if (homeNavBtn) {
+    homeNavBtn.addEventListener('click', () => {
+      closeAllModals();
+      if (window.innerWidth < 1024) {
+        closeMobileMenu();
+      }
     });
   }
 
+  // Escape key closes modals
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
-      closeModal();
+    if (e.key === 'Escape') {
+      closeAllModals();
     }
   });
 
-  // 6. Contact Form Submission
+  // 5. Contact Form Submission
   const contactForm = document.getElementById('contact-form');
   const formFeedback = document.getElementById('form-feedback');
   const submitBtn = document.getElementById('submit-btn');
 
-  if (contactForm) {
+  if (contactForm && submitBtn && formFeedback) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
       
       const originalText = submitBtn.innerHTML;
       submitBtn.disabled = true;
-      submitBtn.innerHTML = `<span>Sending message...</span>`;
+      submitBtn.innerHTML = `<span>Sending...</span>`;
 
       setTimeout(() => {
         submitBtn.disabled = false;
@@ -176,7 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
           formFeedback.classList.add('hidden');
         }, 5000);
-      }, 600);
+      }, 500);
     });
   }
 });

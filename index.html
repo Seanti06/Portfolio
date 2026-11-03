@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sean Manuel Chua · Portfolio</title>
-  <meta name="description" content="Portfolio of Sean Manuel Chua, building clean, scalable, and user-focused web applications." />
+  <meta name="description" content="Portfolio of Sean Manuel Chua, BSIT student and web developer building clean, scalable web applications." />
 
   <!-- Preconnect to Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -24,22 +24,23 @@
   <script src="script.js" defer></script>
 </head>
 
-<body class="bg-[#f8fafc] text-slate-900 antialiased min-h-screen">
+<body class="bg-[#f1f5f9] text-slate-800 antialiased min-h-screen lg:h-screen lg:overflow-hidden">
 
   <!-- Mobile Top Header (Visible only on screens < 1024px) -->
-  <header class="lg:hidden sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200/80 px-4 py-3 flex items-center justify-between">
-    <div class="flex items-center gap-3">
-      <img src="assets/images/profile.jpg" alt="Profile" class="w-9 h-9 rounded-full object-cover object-top ring-2 ring-slate-100 shadow-xs" />
+  <header class="lg:hidden sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/90 px-4 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-2.5">
+      <img src="assets/images/profile.jpg" alt="Sean Manuel Chua" class="w-8 h-8 rounded-full object-cover object-top ring-1 ring-slate-200" />
       <div>
-        <h2 class="font-bold text-sm text-slate-900 leading-tight">Sean Manuel Chua</h2>
+        <h2 class="font-bold text-xs text-slate-900 leading-tight">Sean Manuel Chua</h2>
+        <p class="text-[10px] text-slate-500">Web Developer</p>
       </div>
     </div>
     <div class="flex items-center gap-2">
-      <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold px-4 py-1.5 rounded-xl inline-flex items-center gap-1 shadow-xs transition whitespace-nowrap">
+      <button class="open-modal-btn bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold px-3 py-1.5 rounded-full inline-flex items-center gap-1 shadow-xs transition" data-target="contact-modal">
         <span>Get in touch</span>
         <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-      </a>
-      <button id="mobile-menu-toggle" aria-label="Toggle Navigation Menu" class="p-2 rounded-lg text-slate-600 hover:bg-slate-100 transition">
+      </button>
+      <button id="mobile-menu-toggle" aria-label="Toggle Navigation Menu" class="p-1.5 rounded-lg text-slate-600 hover:bg-slate-100 transition">
         <i data-lucide="menu" class="w-5 h-5"></i>
       </button>
     </div>
@@ -48,71 +49,45 @@
   <!-- Mobile Navigation Drawer Backdrop -->
   <div id="mobile-backdrop" class="fixed inset-0 bg-slate-900/40 backdrop-blur-xs z-40 hidden transition-opacity"></div>
 
-  <!-- Main Container -->
-  <div class="w-full flex flex-col lg:flex-row min-h-screen">
+  <!-- MAIN APP CONTAINER -->
+  <div class="w-full min-h-screen lg:h-screen lg:overflow-hidden bg-[#f4f7fb] flex flex-col lg:flex-row">
 
-    <!-- LEFT SIDEBAR (Desktop Fixed/Sticky) -->
-    <aside id="sidebar" class="fixed lg:sticky top-0 left-0 h-screen w-64 xl:w-72 bg-white border-r border-slate-200/80 z-50 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out flex flex-col justify-between p-6 xl:p-7 overflow-y-auto">
+    <!-- LEFT SIDEBAR -->
+    <aside id="sidebar" class="fixed lg:static top-0 left-0 h-screen w-64 xl:w-72 bg-white border-r border-slate-200/90 z-50 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 flex flex-col justify-between p-5 xl:p-6 shrink-0">
       
-      <!-- Close button on mobile -->
-      <button id="mobile-close-btn" class="lg:hidden absolute top-5 right-5 p-1.5 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100">
+      <!-- Close Button for Mobile Drawer -->
+      <button id="mobile-close-btn" class="lg:hidden absolute top-4 right-4 p-1.5 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100">
         <i data-lucide="x" class="w-5 h-5"></i>
       </button>
 
-      <!-- Sidebar Top: Profile, Name, Socials & Navigation -->
       <div>
-        
-        <!-- Avatar Photo (Clean Profile without Green Indicator) -->
-        <div class="mb-5">
-          <div class="relative w-24 h-24 rounded-full p-1 bg-gradient-to-tr from-slate-200 via-slate-100 to-white shadow-sm ring-1 ring-slate-200/60">
-            <img 
-              src="assets/images/profile.jpg" 
-              alt="Profile Photo" 
-              class="w-full h-full rounded-full object-cover object-top"
-            />
-          </div>
-        </div>
-
-        <!-- Name -->
-        <h1 class="text-xl font-bold tracking-tight text-slate-900 leading-tight">Sean Manuel Chua</h1>
-
-        <!-- About Me / Role Summary (Sidebar) -->
-        <div class="mt-2.5 space-y-2">
-          <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-blue-50 text-blue-700 border border-blue-200/60 shadow-2xs">
-            <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
-            <span>4th-Year BSIT Student</span>
-          </div>
-          <p class="text-xs text-slate-600 leading-relaxed font-normal">
-            Building software applications with Java, Python, and web fundamentals. Focused on practical problem solving and clean code.
-          </p>
-        </div>
-
-        <!-- Social Links & Copy Email Dock -->
-        <div class="flex items-center justify-between mt-4 p-1.5 bg-slate-50/80 rounded-xl border border-slate-200/70 text-slate-600">
-          <div class="flex items-center gap-1">
-            <!-- Gmail -->
-            <a href="mailto:chuaseanmanuel3@gmail.com" class="p-2 rounded-lg hover:bg-white hover:text-red-500 hover:shadow-xs transition" title="Email: chuaseanmanuel3@gmail.com" aria-label="Email Sean">
-              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-              </svg>
-            </a>
-            <!-- Facebook -->
-            <a href="https://www.facebook.com/sean.chua.908579" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg hover:bg-white hover:text-[#1877F2] hover:shadow-xs transition" title="Facebook: sean.chua.908579" aria-label="Facebook Profile">
-              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-              </svg>
-            </a>
-            <!-- Instagram -->
-            <a href="https://www.instagram.com/oni.seanti/" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg hover:bg-white hover:text-[#E4405F] hover:shadow-xs transition" title="Instagram: @oni.seanti" aria-label="Instagram Profile">
-              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-              </svg>
-            </a>
+        <!-- Profile Section -->
+        <div class="flex flex-col items-center text-center">
+          <div class="relative w-20 h-20 xl:w-24 xl:h-24 rounded-2xl p-1 bg-gradient-to-tr from-slate-200 via-slate-100 to-white shadow-sm ring-1 ring-slate-200/80 mb-3">
+            <img src="assets/images/profile.jpg" alt="Sean Manuel Chua" class="w-full h-full object-cover object-top rounded-xl" />
           </div>
 
-          <div class="flex items-center pl-1 border-l border-slate-200">
-            <!-- Copy Email Tooltip Button -->
-            <button id="copy-email-btn" class="p-2 rounded-lg hover:bg-white hover:text-blue-600 hover:shadow-xs transition relative group" title="Copy email address" aria-label="Copy email address">
+          <div class="flex items-center gap-1.5">
+            <h1 class="text-base xl:text-lg font-bold text-slate-900 tracking-tight">Sean Manuel Chua</h1>
+            <span class="inline-flex items-center text-blue-600" title="Verified Profile">
+              <i data-lucide="badge-check" class="w-4 h-4 fill-blue-600 text-white"></i>
+            </span>
+          </div>
+
+          <p class="text-xs text-slate-500 mt-0.5">@seanchua · Web Developer</p>
+
+          <!-- Social Icons Row -->
+          <div class="flex items-center justify-center gap-2 mt-3.5">
+            <a href="mailto:chuaseanmanuel3@gmail.com" class="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:text-red-500 hover:border-red-200 hover:bg-red-50 transition shadow-2xs" title="Email: chuaseanmanuel3@gmail.com">
+              <i data-lucide="mail" class="w-4 h-4"></i>
+            </a>
+            <a href="https://www.facebook.com/sean.chua.908579" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:text-[#1877F2] hover:border-blue-200 hover:bg-blue-50 transition shadow-2xs" title="Facebook">
+              <i data-lucide="facebook" class="w-4 h-4"></i>
+            </a>
+            <a href="https://www.instagram.com/oni.seanti/" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:text-[#E4405F] hover:border-pink-200 hover:bg-pink-50 transition shadow-2xs" title="Instagram">
+              <i data-lucide="instagram" class="w-4 h-4"></i>
+            </a>
+            <button id="copy-email-btn" class="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:text-blue-600 hover:border-blue-200 hover:bg-blue-50 transition shadow-2xs relative group cursor-pointer" title="Copy Email">
               <i data-lucide="copy" class="w-4 h-4"></i>
               <span id="copy-email-tooltip" class="absolute left-1/2 -translate-x-1/2 -top-8 px-2 py-1 text-[10px] font-semibold text-white bg-slate-900 rounded shadow-md opacity-0 pointer-events-none transition-opacity duration-200 whitespace-nowrap">
                 Copy email
@@ -122,705 +97,373 @@
         </div>
 
         <!-- Navigation Links -->
-        <nav class="mt-8 space-y-1" id="nav-menu">
-          <a href="#home" class="nav-link active" data-section="home">
-            <i data-lucide="home" class="w-4.5 h-4.5"></i>
+        <nav class="mt-6 space-y-1" id="sidebar-nav">
+          <button class="nav-link active w-full text-left cursor-pointer" data-view="home">
+            <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
             <span>Home</span>
-          </a>
-          <a href="#about" class="nav-link" data-section="about">
-            <i data-lucide="user" class="w-4.5 h-4.5"></i>
-            <span>About</span>
-          </a>
-          <a href="#skills" class="nav-link" data-section="skills">
-            <i data-lucide="code-2" class="w-4.5 h-4.5"></i>
-            <span>Tech Skills</span>
-          </a>
-          <a href="#projects" class="nav-link" data-section="projects">
-            <i data-lucide="layout-grid" class="w-4.5 h-4.5"></i>
+          </button>
+          <button class="nav-link w-full text-left open-modal-btn cursor-pointer" data-target="projects-modal">
+            <i data-lucide="folder-git-2" class="w-4 h-4"></i>
             <span>Projects</span>
-          </a>
-          <a href="#certifications" class="nav-link" data-section="certifications">
-            <i data-lucide="award" class="w-4.5 h-4.5"></i>
+          </button>
+          <button class="nav-link w-full text-left open-modal-btn cursor-pointer" data-target="skills-modal">
+            <i data-lucide="cpu" class="w-4 h-4"></i>
+            <span>Tech Skills</span>
+          </button>
+          <button class="nav-link w-full text-left open-modal-btn cursor-pointer" data-target="certifications-modal">
+            <i data-lucide="award" class="w-4 h-4"></i>
             <span>Certifications</span>
-          </a>
-          <a href="#feedback" class="nav-link" data-section="feedback">
-            <i data-lucide="message-square" class="w-4.5 h-4.5"></i>
+          </button>
+          <button class="nav-link w-full text-left open-modal-btn cursor-pointer" data-target="feedback-modal">
+            <i data-lucide="message-square" class="w-4 h-4"></i>
             <span>Feedback</span>
-          </a>
-          <a href="#contact" class="nav-link" data-section="contact">
-            <i data-lucide="mail" class="w-4.5 h-4.5"></i>
+          </button>
+          <button class="nav-link w-full text-left open-modal-btn cursor-pointer" data-target="about-modal">
+            <i data-lucide="user" class="w-4 h-4"></i>
+            <span>About</span>
+          </button>
+          <button class="nav-link w-full text-left open-modal-btn cursor-pointer" data-target="contact-modal">
+            <i data-lucide="send" class="w-4 h-4"></i>
             <span>Contact</span>
-          </a>
+          </button>
         </nav>
       </div>
 
       <!-- Sidebar Footer -->
-      <div class="pt-6 border-t border-slate-100 text-xs text-slate-500">
-        <p class="text-slate-400 text-[11px] leading-relaxed">© 2026 Sean Manuel Chua. All rights reserved.</p>
+      <div class="pt-4 border-t border-slate-100 text-xs text-slate-500">
+        <p class="text-[11px] text-slate-400 leading-relaxed">© 2026 Sean Manuel Chua. All rights reserved.</p>
       </div>
 
     </aside>
 
-    <!-- RIGHT MAIN CONTENT AREA -->
-    <main class="flex-1 px-4 sm:px-6 md:px-8 lg:px-12 py-6 sm:py-8 lg:py-10 max-w-6xl">
+    <!-- RIGHT MAIN CONTENT (Bento Dashboard Canvas) -->
+    <main class="flex-1 min-h-0 lg:h-screen lg:overflow-hidden flex flex-col p-3.5 sm:p-5 xl:p-6">
+      
+      <!-- Header Row -->
+      <div class="shrink-0 flex items-center justify-between pb-3">
+        <div>
+          <h1 class="text-xl sm:text-2xl xl:text-3xl font-bold tracking-tight text-slate-900 leading-tight">
+            Build clean. Scale effortlessly.
+          </h1>
+          <p class="text-xs sm:text-sm text-slate-500 mt-0.5 leading-relaxed">
+            BSIT student &amp; developer building modern web applications, scalable interfaces, and responsive digital platforms.
+          </p>
+        </div>
+        <button class="open-modal-btn hidden sm:inline-flex bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold px-4 py-2.5 rounded-full items-center gap-1.5 shadow-sm transition transform hover:-translate-y-0.5 cursor-pointer shrink-0" data-target="contact-modal">
+          <span>Get in touch</span>
+          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+        </button>
+      </div>
 
-      <!-- HERO SECTION -->
-      <section id="home" class="pt-2 sm:pt-4 pb-12 sm:pb-16">
-        
-        <!-- Top bar with 'Get in touch' CTA -->
-        <div class="flex items-center justify-end mb-4 sm:mb-6">
-          <a href="#contact" class="hidden sm:inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-xs hover:shadow transition transform hover:-translate-y-0.5 whitespace-nowrap">
-            <span>Get in touch</span>
-            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-          </a>
+      <!-- Daily Drivers / Tools Ribbon Strip -->
+      <div class="shrink-0 mb-3 p-1.5 bg-[#eaf1fb] rounded-2xl flex items-center justify-between gap-2 overflow-x-auto text-xs">
+        <div class="flex items-center gap-2 bg-white px-3 py-1.5 rounded-xl shadow-2xs shrink-0">
+          <span class="text-[10px] font-bold text-blue-600 uppercase tracking-wider">CORE STACK</span>
+          <span class="font-semibold text-slate-800 text-xs hidden md:inline">Tools I work with</span>
         </div>
 
-        <!-- Hero Content Grid -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-          
-          <!-- Hero Text & CTAs (Left 7 cols) -->
-          <div class="lg:col-span-7">
-            <span class="inline-block text-xs font-bold text-blue-600 tracking-widest uppercase mb-2.5">HELLO, I'M</span>
-            <h1 class="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-black text-slate-900 tracking-tight leading-[1.08] mb-4">
-              Sean Manuel Chua
-            </h1>
-            <p class="text-slate-600 text-base sm:text-lg leading-relaxed max-w-xl mb-6 sm:mb-8">
-              4th-year BSIT student passionate about software engineering and web development. Building practical applications with Java, Python, JavaScript, and modern web technologies.
+        <div class="flex items-center gap-2 shrink-0">
+          <span class="tool-chip flex items-center gap-1.5 px-3 py-1 bg-white/80 rounded-lg text-slate-700 font-medium text-xs border border-slate-200/70">
+            <i data-lucide="code" class="w-3.5 h-3.5 text-blue-600"></i>
+            Java
+          </span>
+          <span class="tool-chip flex items-center gap-1.5 px-3 py-1 bg-white/80 rounded-lg text-slate-700 font-medium text-xs border border-slate-200/70">
+            <i data-lucide="terminal" class="w-3.5 h-3.5 text-amber-600"></i>
+            Python
+          </span>
+          <span class="tool-chip flex items-center gap-1.5 px-3 py-1 bg-white/80 rounded-lg text-slate-700 font-medium text-xs border border-slate-200/70">
+            <i data-lucide="file-code" class="w-3.5 h-3.5 text-yellow-600"></i>
+            JavaScript
+          </span>
+          <span class="tool-chip flex items-center gap-1.5 px-3 py-1 bg-white/80 rounded-lg text-slate-700 font-medium text-xs border border-slate-200/70">
+            <i data-lucide="figma" class="w-3.5 h-3.5 text-purple-600"></i>
+            Figma
+          </span>
+          <span class="tool-chip flex items-center gap-1.5 px-3 py-1 bg-white/80 rounded-lg text-slate-700 font-medium text-xs border border-slate-200/70">
+            <i data-lucide="palette" class="w-3.5 h-3.5 text-cyan-600"></i>
+            Canva
+          </span>
+          <span class="tool-chip flex items-center gap-1.5 px-3 py-1 bg-white/80 rounded-lg text-slate-700 font-medium text-xs border border-slate-200/70">
+            <i data-lucide="laptop" class="w-3.5 h-3.5 text-sky-600"></i>
+            VS Code
+          </span>
+          <span class="tool-chip flex items-center gap-1.5 px-3 py-1 bg-white/80 rounded-lg text-slate-700 font-medium text-xs border border-slate-200/70">
+            <i data-lucide="git-branch" class="w-3.5 h-3.5 text-orange-600"></i>
+            Git &amp; GitHub
+          </span>
+        </div>
+      </div>
+
+      <!-- Bento Grid Canvas Container -->
+      <div class="flex-1 min-h-0 bg-[#e3effb] p-3 xl:p-3.5 rounded-2xl grid grid-cols-1 md:grid-cols-12 gap-3 xl:gap-3.5 overflow-y-auto lg:overflow-hidden">
+
+        <!-- BENTO 1: Tall Featured Persona / Profile Card (Cols 1-4) -->
+        <div class="bento-card md:col-span-4 bg-white rounded-2xl p-4 xl:p-5 border border-slate-200/80 shadow-xs flex flex-col justify-between">
+          <div>
+            <!-- Status Badge -->
+            <div class="flex items-center justify-between mb-3">
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200/80">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                Available for work
+              </span>
+              <span class="text-[11px] font-semibold text-slate-400">Manila, PH</span>
+            </div>
+
+            <!-- Profile Avatar with Soft Frame -->
+            <div class="relative w-28 h-28 xl:w-32 xl:h-32 mx-auto rounded-2xl p-1 bg-gradient-to-tr from-blue-100 via-slate-50 to-white ring-1 ring-blue-100 shadow-sm mt-1">
+              <img src="assets/images/profile.jpg" alt="Sean Manuel Chua" class="w-full h-full object-cover object-top rounded-xl" />
+              <span class="absolute -bottom-1.5 -right-1.5 w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center ring-2 ring-white shadow-xs">
+                <i data-lucide="check" class="w-3.5 h-3.5"></i>
+              </span>
+            </div>
+
+            <div class="text-center mt-3">
+              <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">HI, I'M</p>
+              <h2 class="text-lg xl:text-xl font-bold text-slate-900 tracking-tight">Sean Manuel Chua</h2>
+              <p class="text-[11px] font-semibold text-blue-600 uppercase tracking-wider mt-0.5">
+                BSIT Student · Web Developer
+              </p>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed px-2">
+                Focused on writing maintainable code, building responsive interfaces, and solving real user problems.
+              </p>
+            </div>
+          </div>
+
+          <!-- Bottom Action -->
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs mt-3">
+            <span class="text-[11px] text-slate-400 font-medium">BS Information Tech</span>
+            <button class="open-modal-btn font-semibold text-blue-600 hover:text-blue-700 inline-flex items-center gap-1 cursor-pointer" data-target="about-modal">
+              <span>About me</span>
+              <i data-lucide="arrow-right" class="w-3 h-3"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- BENTO 2: Featured Projects Card (Cols 5-9, Row 1) -->
+        <div class="bento-card md:col-span-5 bg-white rounded-2xl p-4 border border-slate-200/80 shadow-xs flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-2.5">
+              <div class="flex items-center gap-2">
+                <div class="w-7 h-7 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                  <i data-lucide="folder-code" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <h3 class="text-sm font-bold text-slate-900">Projects</h3>
+                  <p class="text-[11px] text-slate-500">Interactive platforms &amp; web apps</p>
+                </div>
+              </div>
+              <button class="open-modal-btn text-xs font-semibold text-blue-600 hover:text-blue-700 inline-flex items-center gap-1 cursor-pointer" data-target="projects-modal">
+                <span>View all</span>
+                <i data-lucide="arrow-up-right" class="w-3 h-3"></i>
+              </button>
+            </div>
+
+            <!-- Mini Preview Grids -->
+            <div class="grid grid-cols-2 gap-2 mt-2">
+              <div class="mini-project-preview rounded-xl overflow-hidden bg-slate-100 cursor-pointer open-modal-btn" data-target="projects-modal">
+                <img src="assets/images/project-placeholder-1.svg" alt="Project One" class="w-full h-20 xl:h-24 object-cover" />
+                <div class="p-2">
+                  <div class="flex items-center justify-between">
+                    <h4 class="text-xs font-bold text-slate-900">Platform One</h4>
+                    <span class="text-[9px] font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.2 rounded">Active</span>
+                  </div>
+                  <p class="text-[10px] text-slate-500 truncate mt-0.5">Responsive web application</p>
+                </div>
+              </div>
+
+              <div class="mini-project-preview rounded-xl overflow-hidden bg-slate-100 cursor-pointer open-modal-btn" data-target="projects-modal">
+                <img src="assets/images/project-placeholder-2.svg" alt="Project Two" class="w-full h-20 xl:h-24 object-cover" />
+                <div class="p-2">
+                  <div class="flex items-center justify-between">
+                    <h4 class="text-xs font-bold text-slate-900">System Two</h4>
+                    <span class="text-[9px] font-bold text-blue-600 bg-blue-50 px-1.5 py-0.2 rounded">App</span>
+                  </div>
+                  <p class="text-[10px] text-slate-500 truncate mt-0.5">Interactive digital dashboard</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-2.5 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 mt-2">
+            <span class="text-[11px] text-slate-400">4 Featured Works</span>
+            <button class="open-modal-btn text-blue-600 hover:text-blue-700 font-semibold inline-flex items-center gap-1 cursor-pointer" data-target="projects-modal">
+              <span>Inspect codebase</span>
+              <i data-lucide="arrow-right" class="w-3 h-3"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- BENTO 3: Feedback / Testimonials Card (Cols 10-12, Row 1) -->
+        <div class="bento-card md:col-span-3 bg-white rounded-2xl p-4 border border-slate-200/80 shadow-xs flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-2 mb-2.5">
+              <div class="w-7 h-7 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center shrink-0">
+                <i data-lucide="message-square" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <h3 class="text-sm font-bold text-slate-900">Feedback</h3>
+                <p class="text-[11px] text-slate-500">Peer &amp; mentor reviews</p>
+              </div>
+            </div>
+
+            <div class="mt-1 pl-3 border-l-2 border-purple-200 py-0.5">
+              <div class="flex items-center gap-1 text-amber-400 mb-1">
+                <i data-lucide="star" class="w-3 h-3 fill-amber-400"></i>
+                <i data-lucide="star" class="w-3 h-3 fill-amber-400"></i>
+                <i data-lucide="star" class="w-3 h-3 fill-amber-400"></i>
+                <i data-lucide="star" class="w-3 h-3 fill-amber-400"></i>
+                <i data-lucide="star" class="w-3 h-3 fill-amber-400"></i>
+              </div>
+              <p class="text-xs text-slate-600 italic leading-snug">
+                "Sean crafts exceptionally clean, responsive interfaces with great attention to detail."
+              </p>
+              <p class="text-[10px] font-bold text-slate-700 mt-1.5">— Peer Reviewer</p>
+            </div>
+          </div>
+
+          <div class="pt-2.5 border-t border-slate-100 flex items-center justify-between text-xs mt-2">
+            <span class="text-[11px] text-slate-400">Validated work</span>
+            <button class="open-modal-btn text-purple-600 hover:text-purple-700 font-semibold inline-flex items-center gap-1 cursor-pointer" data-target="feedback-modal">
+              <span>Read reviews</span>
+              <i data-lucide="arrow-right" class="w-3 h-3"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- BENTO 4: Credentials / Certifications Card (Cols 5-7, Row 2) -->
+        <div class="bento-card md:col-span-3 bg-white rounded-2xl p-4 border border-slate-200/80 shadow-xs flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <div class="w-7 h-7 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
+                <i data-lucide="award" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <h3 class="text-sm font-bold text-slate-900">Credentials</h3>
+                <p class="text-[11px] text-slate-500">Coursework milestones</p>
+              </div>
+            </div>
+
+            <div class="py-2 text-center">
+              <div class="w-10 h-10 mx-auto rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mb-1.5 shadow-2xs">
+                <i data-lucide="shield-check" class="w-5 h-5"></i>
+              </div>
+              <span class="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-blue-50 text-blue-700 border border-blue-200/60">
+                BSIT Academic Standing
+              </span>
+              <p class="text-[11px] text-slate-600 mt-1">4 Verified IT Credentials</p>
+            </div>
+          </div>
+
+          <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs mt-1">
+            <span class="text-[11px] text-slate-400">2023–2024</span>
+            <button class="open-modal-btn text-amber-600 hover:text-amber-700 font-semibold inline-flex items-center gap-1 cursor-pointer" data-target="certifications-modal">
+              <span>View badges</span>
+              <i data-lucide="arrow-right" class="w-3 h-3"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- BENTO 5: Services & Stack Card (Cols 8-10, Row 2) -->
+        <div class="bento-card md:col-span-3 bg-white rounded-2xl p-4 border border-slate-200/80 shadow-xs flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <div class="w-7 h-7 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+                <i data-lucide="layers" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <h3 class="text-sm font-bold text-slate-900">Services</h3>
+                <p class="text-[11px] text-slate-500">What I build &amp; specialize in</p>
+              </div>
+            </div>
+
+            <div class="space-y-1 text-xs">
+              <div class="flex items-center justify-between p-1 rounded-lg hover:bg-slate-50">
+                <span class="font-medium text-slate-700">Web Development</span>
+                <span class="text-[10px] font-bold text-slate-400">01</span>
+              </div>
+              <div class="flex items-center justify-between p-1 rounded-lg hover:bg-slate-50">
+                <span class="font-medium text-slate-700">UI / UX Design</span>
+                <span class="text-[10px] font-bold text-slate-400">02</span>
+              </div>
+              <div class="flex items-center justify-between p-1 rounded-lg hover:bg-slate-50">
+                <span class="font-medium text-slate-700">Scripting &amp; Logic</span>
+                <span class="text-[10px] font-bold text-slate-400">03</span>
+              </div>
+              <div class="flex items-center justify-between p-1 rounded-lg hover:bg-slate-50">
+                <span class="font-medium text-slate-700">Version Control</span>
+                <span class="text-[10px] font-bold text-slate-400">04</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs mt-1">
+            <span class="text-[11px] text-slate-400">Tech Toolchain</span>
+            <button class="open-modal-btn text-emerald-600 hover:text-emerald-700 font-semibold inline-flex items-center gap-1 cursor-pointer" data-target="skills-modal">
+              <span>Full stack</span>
+              <i data-lucide="arrow-right" class="w-3 h-3"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- BENTO 6: Contact & Direct Action Card (Cols 11-12, Row 2) -->
+        <div class="bento-card md:col-span-2 bg-white rounded-2xl p-4 border border-slate-200/80 shadow-xs flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <div class="w-7 h-7 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                <i data-lucide="mail" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <h3 class="text-sm font-bold text-slate-900">Contact</h3>
+                <p class="text-[11px] text-slate-500">Get in touch</p>
+              </div>
+            </div>
+
+            <p class="text-xs text-slate-600 mt-1 leading-snug">
+              Have a project or opportunity? Let's connect.
             </p>
 
-            <div class="flex items-center gap-3">
-              <a href="#projects" class="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-xl shadow-xs hover:shadow transition text-center">
-                <span>View my work</span>
-                <i data-lucide="arrow-down" class="w-4 h-4 text-blue-200"></i>
-              </a>
-            </div>
+            <button class="open-modal-btn w-full mt-2.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs py-2 rounded-xl transition shadow-2xs flex items-center justify-center gap-1 cursor-pointer" data-target="contact-modal">
+              <span>Send Message</span>
+              <i data-lucide="send" class="w-3 h-3"></i>
+            </button>
           </div>
 
-          <!-- Hero Image Card: Workstation Placeholder -->
-          <div class="lg:col-span-5">
-            <div class="relative group rounded-2xl overflow-hidden bg-white border border-slate-200/80 shadow-xs aspect-[4/3] flex items-center justify-center">
-              <img 
-                src="assets/images/workstation-placeholder.svg" 
-                alt="Workstation Placeholder"
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/10 via-transparent to-transparent pointer-events-none"></div>
-              <div class="absolute bottom-3 left-3 bg-slate-900/80 backdrop-blur-xs px-2.5 py-1 rounded-md text-xs font-medium text-white flex items-center gap-1.5">
-                <span class="w-2 h-2 rounded-full bg-blue-400"></span>
-                <span>Workstation Placeholder</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- ABOUT ME & TECH SKILLS SECTION -->
-      <section class="py-12 sm:py-14 lg:py-16 border-t border-slate-200/70">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
-
-          <!-- About Me Card (Left 6 cols) -->
-          <div id="about" class="lg:col-span-6 bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col justify-between">
-            <div>
-              <div class="flex items-center justify-between mb-4">
-                <h2 class="text-xl font-bold tracking-tight text-slate-900">About Me</h2>
-                <span class="text-xs font-semibold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full border border-blue-100">BSIT Student</span>
-              </div>
-              <p class="text-slate-600 text-sm leading-relaxed mb-4">
-                I am a 4th-year Bachelor of Science in Information Technology (BSIT) student with a strong foundation in software engineering, database design, and web technologies.
-              </p>
-              <p class="text-slate-600 text-sm leading-relaxed mb-4">
-                My academic journey and personal projects focus on creating clean, accessible, and dependable software solutions. I continuously hone my skills in modern frontend and backend development.
-              </p>
-              <p class="text-slate-600 text-sm leading-relaxed">
-                Looking for internship or junior developer opportunities where I can contribute to meaningful engineering projects and grow alongside talented teams.
-              </p>
-            </div>
-            <div class="mt-6 pt-5 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
-              <span class="inline-flex items-center gap-1.5 font-medium text-slate-700">
-                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-slate-400"></i>
-                Philippines
-              </span>
-              <a href="#contact" class="font-semibold text-blue-600 hover:text-blue-700 flex items-center gap-1 transition">
-                <span>Let's talk</span>
-                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-              </a>
-            </div>
-          </div>
-
-          <!-- Tech Skills Card (Right 6 cols) -->
-          <div id="skills" class="lg:col-span-6 bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col justify-between">
-            <div>
-              <div class="mb-4">
-                <h2 class="text-xl font-bold tracking-tight text-slate-900">Tech Skills</h2>
-                <p class="text-slate-500 text-xs mt-1">Programming languages, design software, and development toolchain.</p>
-              </div>
-              
-              <div class="space-y-4">
-                <!-- Languages -->
-                <div>
-                  <h3 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Languages</h3>
-                  <div class="flex flex-wrap gap-2">
-                    <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
-                      Java
-                    </span>
-                    <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
-                      Python
-                    </span>
-                    <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
-                      JavaScript
-                    </span>
-                  </div>
-                </div>
-
-                <!-- Design Tools -->
-                <div>
-                  <h3 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Design Tools</h3>
-                  <div class="flex flex-wrap gap-2">
-                    <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
-                      Figma
-                    </span>
-                    <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
-                      Canva
-                    </span>
-                  </div>
-                </div>
-
-                <!-- Development Tools (Without MySQL) -->
-                <div>
-                  <h3 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Development Tools</h3>
-                  <div class="flex flex-wrap gap-2">
-                    <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
-                      VS Code
-                    </span>
-                    <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 border border-slate-200">
-                      Git &amp; GitHub
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="mt-6 pt-5 border-t border-slate-100 flex items-center justify-between text-xs">
-              <span class="text-slate-400">Continuous learner</span>
-              <a href="#projects" class="font-semibold text-blue-600 hover:text-blue-700 flex items-center gap-1 transition">
-                <span>See stack in projects</span>
-                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-              </a>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- SELECTED PROJECTS SECTION -->
-      <section id="projects" class="py-12 sm:py-14 lg:py-16 border-t border-slate-200/70">
-        
-        <div class="flex items-center justify-between mb-6 sm:mb-8">
-          <div>
-            <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-slate-900">Selected Projects</h2>
-            <p class="text-xs sm:text-sm text-slate-500 mt-1">Real-world applications built for performance, scale, and clarity.</p>
-          </div>
-          <button id="view-all-projects-btn" class="text-xs sm:text-sm font-semibold text-blue-600 hover:text-blue-700 inline-flex items-center gap-1 transition group cursor-pointer">
-            <span>View all projects</span>
-            <i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-0.5"></i>
-          </button>
-        </div>
-
-        <!-- 3 Project Cards Grid (Placeholders) -->
-        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-7">
-
-          <!-- Project 1 Placeholder -->
-          <div class="project-card bg-white rounded-2xl border border-slate-200/80 overflow-hidden flex flex-col justify-between shadow-xs">
-            <div>
-              <div class="w-full h-44 bg-slate-900 overflow-hidden relative border-b border-slate-100 group">
-                <img 
-                  src="assets/images/project-placeholder-1.svg" 
-                  alt="Project One Preview" 
-                  class="project-img w-full h-full object-cover"
-                />
-                <span class="absolute top-2.5 right-2.5 bg-slate-900/80 backdrop-blur-xs text-[11px] font-semibold text-emerald-400 border border-slate-700/80 px-2.5 py-0.5 rounded-full">
-                  ● Featured
-                </span>
-              </div>
-
-              <div class="p-5">
-                <div class="flex items-center justify-between mb-2">
-                  <h3 class="text-base font-bold text-slate-900">Project Title One</h3>
-                  <div class="flex items-center gap-2">
-                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="p-1 rounded text-slate-400 hover:text-slate-800 transition" title="View Source Code">
-                      <i data-lucide="github" class="w-4 h-4"></i>
-                    </a>
-                    <a href="#" class="p-1 rounded text-slate-400 hover:text-blue-600 transition" title="Launch Demo">
-                      <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-                    </a>
-                  </div>
-                </div>
-                <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
-                  Project description placeholder. Outline the core features, problem solved, and architecture choices of this web application.
-                </p>
-              </div>
-            </div>
-
-            <div class="px-5 pb-5 pt-0 flex items-center gap-2 text-xs font-medium text-slate-500 flex-wrap">
-              <span>Technology 1</span>
-              <span class="text-slate-300">·</span>
-              <span>Technology 2</span>
-              <span class="text-slate-300">·</span>
-              <span>Framework</span>
-            </div>
-          </div>
-
-          <!-- Project 2 Placeholder -->
-          <div class="project-card bg-white rounded-2xl border border-slate-200/80 overflow-hidden flex flex-col justify-between shadow-xs">
-            <div>
-              <div class="w-full h-44 bg-slate-100 overflow-hidden relative border-b border-slate-100">
-                <img 
-                  src="assets/images/project-placeholder-2.svg" 
-                  alt="Project Two Preview" 
-                  class="project-img w-full h-full object-cover"
-                />
-                <span class="absolute top-2.5 right-2.5 bg-white/90 backdrop-blur-xs text-[11px] font-semibold text-blue-600 border border-slate-200 px-2.5 py-0.5 rounded-full">
-                  Application
-                </span>
-              </div>
-
-              <div class="p-5">
-                <div class="flex items-center justify-between mb-2">
-                  <h3 class="text-base font-bold text-slate-900">Project Title Two</h3>
-                  <div class="flex items-center gap-2">
-                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="p-1 rounded text-slate-400 hover:text-slate-800 transition" title="View Source Code">
-                      <i data-lucide="github" class="w-4 h-4"></i>
-                    </a>
-                    <a href="#" class="p-1 rounded text-slate-400 hover:text-blue-600 transition" title="Launch Demo">
-                      <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-                    </a>
-                  </div>
-                </div>
-                <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
-                  Project description placeholder. Outline the key technical challenges, data structures, and APIs implemented.
-                </p>
-              </div>
-            </div>
-
-            <div class="px-5 pb-5 pt-0 flex items-center gap-2 text-xs font-medium text-slate-500 flex-wrap">
-              <span>Technology 1</span>
-              <span class="text-slate-300">·</span>
-              <span>Technology 2</span>
-              <span class="text-slate-300">·</span>
-              <span>Database</span>
-            </div>
-          </div>
-
-          <!-- Project 3 Placeholder -->
-          <div class="project-card bg-white rounded-2xl border border-slate-200/80 overflow-hidden flex flex-col justify-between shadow-xs">
-            <div>
-              <div class="w-full h-44 bg-slate-50 overflow-hidden relative border-b border-slate-100">
-                <img 
-                  src="assets/images/project-placeholder-3.svg" 
-                  alt="Project Three Preview" 
-                  class="project-img w-full h-full object-cover"
-                />
-                <span class="absolute top-2.5 right-2.5 bg-white/90 backdrop-blur-xs text-[11px] font-semibold text-purple-600 border border-slate-200 px-2.5 py-0.5 rounded-full">
-                  System
-                </span>
-              </div>
-
-              <div class="p-5">
-                <div class="flex items-center justify-between mb-2">
-                  <h3 class="text-base font-bold text-slate-900">Project Title Three</h3>
-                  <div class="flex items-center gap-2">
-                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="p-1 rounded text-slate-400 hover:text-slate-800 transition" title="View Source Code">
-                      <i data-lucide="github" class="w-4 h-4"></i>
-                    </a>
-                    <a href="#" class="p-1 rounded text-slate-400 hover:text-blue-600 transition" title="Launch Demo">
-                      <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-                    </a>
-                  </div>
-                </div>
-                <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
-                  Project description placeholder. Detail user experience goals, deployment pipelines, and responsive design execution.
-                </p>
-              </div>
-            </div>
-
-            <div class="px-5 pb-5 pt-0 flex items-center gap-2 text-xs font-medium text-slate-500 flex-wrap">
-              <span>Technology 1</span>
-              <span class="text-slate-300">·</span>
-              <span>Technology 2</span>
-              <span class="text-slate-300">·</span>
-              <span>Cloud Tool</span>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- CERTIFICATIONS SECTION -->
-      <section id="certifications" class="py-12 sm:py-14 lg:py-16 border-t border-slate-200/70">
-        <div class="mb-6 sm:mb-8">
-          <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-slate-900">Certifications</h2>
-          <p class="text-xs sm:text-sm text-slate-500 mt-1">Credentials, technical milestones, and specialized coursework.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
-
-          <!-- Certification 1 Placeholder -->
-          <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col justify-between hover:border-slate-300 transition group">
-            <div>
-              <div class="flex items-start justify-between gap-3 mb-3">
-                <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
-                  <i data-lucide="award" class="w-5 h-5"></i>
-                </div>
-                <span class="text-xs font-semibold text-slate-600 bg-slate-100 px-2.5 py-0.5 rounded-full">2024</span>
-              </div>
-              <h3 class="text-base font-bold text-slate-900 mb-1">Certification Name 1</h3>
-              <p class="text-xs font-semibold text-blue-600 mb-2">Issuing Organization / Provider</p>
-              <p class="text-xs text-slate-600 leading-relaxed">
-                Describe the key competencies validated by this credential, including technical coursework, exams passed, or practical skills acquired.
-              </p>
-            </div>
-            <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs">
-              <span class="text-xs text-slate-500 font-medium">Credential ID: Placeholder</span>
-              <a href="#" class="font-semibold text-blue-600 hover:text-blue-700 inline-flex items-center gap-1 transition">
-                <span>View Certificate</span>
-                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-              </a>
-            </div>
-          </div>
-
-          <!-- Certification 2 Placeholder -->
-          <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col justify-between hover:border-slate-300 transition group">
-            <div>
-              <div class="flex items-start justify-between gap-3 mb-3">
-                <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
-                  <i data-lucide="award" class="w-5 h-5"></i>
-                </div>
-                <span class="text-xs font-semibold text-slate-600 bg-slate-100 px-2.5 py-0.5 rounded-full">2024</span>
-              </div>
-              <h3 class="text-base font-bold text-slate-900 mb-1">Certification Name 2</h3>
-              <p class="text-xs font-semibold text-emerald-600 mb-2">Issuing Organization / Provider</p>
-              <p class="text-xs text-slate-600 leading-relaxed">
-                Summary of the certification objectives, tools covered (e.g. Java, Python, networking, or database fundamentals), and key milestones.
-              </p>
-            </div>
-            <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs">
-              <span class="text-xs text-slate-500 font-medium">Credential ID: Placeholder</span>
-              <a href="#" class="font-semibold text-blue-600 hover:text-blue-700 inline-flex items-center gap-1 transition">
-                <span>View Certificate</span>
-                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-              </a>
-            </div>
-          </div>
-
-          <!-- Certification 3 Placeholder -->
-          <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col justify-between hover:border-slate-300 transition group">
-            <div>
-              <div class="flex items-start justify-between gap-3 mb-3">
-                <div class="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center shrink-0">
-                  <i data-lucide="award" class="w-5 h-5"></i>
-                </div>
-                <span class="text-xs font-semibold text-slate-600 bg-slate-100 px-2.5 py-0.5 rounded-full">2023</span>
-              </div>
-              <h3 class="text-base font-bold text-slate-900 mb-1">Certification Name 3</h3>
-              <p class="text-xs font-semibold text-purple-600 mb-2">Issuing Organization / Institution</p>
-              <p class="text-xs text-slate-600 leading-relaxed">
-                Foundational IT credentials, workshops, or academic training certificates completed during your BSIT degree.
-              </p>
-            </div>
-            <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs">
-              <span class="text-xs text-slate-500 font-medium">Credential ID: Placeholder</span>
-              <a href="#" class="font-semibold text-blue-600 hover:text-blue-700 inline-flex items-center gap-1 transition">
-                <span>View Certificate</span>
-                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-              </a>
-            </div>
-          </div>
-
-          <!-- Certification 4 Placeholder -->
-          <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col justify-between hover:border-slate-300 transition group">
-            <div>
-              <div class="flex items-start justify-between gap-3 mb-3">
-                <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
-                  <i data-lucide="award" class="w-5 h-5"></i>
-                </div>
-                <span class="text-xs font-semibold text-slate-600 bg-slate-100 px-2.5 py-0.5 rounded-full">2023</span>
-              </div>
-              <h3 class="text-base font-bold text-slate-900 mb-1">Certification Name 4</h3>
-              <p class="text-xs font-semibold text-amber-600 mb-2">Issuing Organization / Institution</p>
-              <p class="text-xs text-slate-600 leading-relaxed">
-                Additional certificate for coursework or seminars attended in software development, cybersecurity, or cloud tools.
-              </p>
-            </div>
-            <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs">
-              <span class="text-xs text-slate-500 font-medium">Credential ID: Placeholder</span>
-              <a href="#" class="font-semibold text-blue-600 hover:text-blue-700 inline-flex items-center gap-1 transition">
-                <span>View Certificate</span>
-                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-              </a>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- FEEDBACK SECTION -->
-      <section id="feedback" class="py-12 sm:py-14 lg:py-16 border-t border-slate-200/70">
-        <div class="mb-6 sm:mb-8">
-          <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-slate-900">Feedback</h2>
-          <p class="text-xs sm:text-sm text-slate-500 mt-1">Endorsements from mentors, professors, and collaborators.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-
-          <!-- Review 1 Placeholder -->
-          <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col justify-between">
-            <div>
-              <div class="flex items-center gap-1 text-amber-400 mb-4">
-                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              </div>
-              <p class="text-slate-600 text-sm leading-relaxed italic mb-6">
-                "Placeholder testimonial highlighting your technical execution, reliability, work ethic, and collaborative communication on client projects."
-              </p>
-            </div>
-            <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
-              <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-700 font-bold flex items-center justify-center text-sm ring-1 ring-blue-200">
-                CN
-              </div>
-              <div>
-                <h3 class="font-bold text-sm text-slate-900">Client / Colleague Name</h3>
-                <p class="text-xs text-slate-500">Position, Company / Client</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Review 2 Placeholder -->
-          <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col justify-between">
-            <div>
-              <div class="flex items-center gap-1 text-amber-400 mb-4">
-                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              </div>
-              <p class="text-slate-600 text-sm leading-relaxed italic mb-6">
-                "Another placeholder endorsement praising your problem-solving abilities, delivery speed, attention to detail, and positive impact on the team."
-              </p>
-            </div>
-            <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
-              <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 font-bold flex items-center justify-center text-sm ring-1 ring-emerald-200">
-                MP
-              </div>
-              <div>
-                <h3 class="font-bold text-sm text-slate-900">Manager / Partner Name</h3>
-                <p class="text-xs text-slate-500">Role, Organization</p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- CONTACT SECTION -->
-      <section id="contact" class="py-12 sm:py-14 lg:py-16 border-t border-slate-200/70">
-        <div class="mb-6 sm:mb-8">
-          <span class="text-xs font-bold text-blue-600 tracking-widest uppercase">LET'S CONNECT</span>
-          <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 mt-1">Get in Touch</h2>
-          <p class="text-slate-600 text-xs sm:text-sm mt-1">Have a project, role, or question? Send a message and I'll get back to you promptly.</p>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
-
-          <!-- Left Info Column: Direct Channels (Gmail, Facebook, Instagram) -->
-          <div class="lg:col-span-5 bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col justify-between">
-            <div class="space-y-5">
-              
-              <!-- Gmail -->
-              <div class="flex items-start gap-3.5">
-                <div class="w-10 h-10 rounded-xl bg-red-50 text-[#EA4335] flex items-center justify-center shrink-0">
-                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                  </svg>
-                </div>
-                <div>
-                  <p class="text-xs text-slate-400 font-medium">Gmail</p>
-                  <a href="mailto:chuaseanmanuel3@gmail.com" class="text-sm font-semibold text-slate-800 hover:text-red-500 transition break-all">
-                    chuaseanmanuel3@gmail.com
-                  </a>
-                </div>
-              </div>
-
-              <!-- Facebook -->
-              <div class="flex items-start gap-3.5 pt-4 border-t border-slate-100">
-                <div class="w-10 h-10 rounded-xl bg-blue-50 text-[#1877F2] flex items-center justify-center shrink-0">
-                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                  </svg>
-                </div>
-                <div>
-                  <p class="text-xs text-slate-400 font-medium">Facebook</p>
-                  <a href="https://www.facebook.com/sean.chua.908579" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-slate-800 hover:text-[#1877F2] transition inline-flex items-center gap-1">
-                    <span>sean.chua.908579</span>
-                    <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-slate-400"></i>
-                  </a>
-                </div>
-              </div>
-
-              <!-- Instagram -->
-              <div class="flex items-start gap-3.5 pt-4 border-t border-slate-100">
-                <div class="w-10 h-10 rounded-xl bg-pink-50 text-[#E4405F] flex items-center justify-center shrink-0">
-                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                  </svg>
-                </div>
-                <div>
-                  <p class="text-xs text-slate-400 font-medium">Instagram</p>
-                  <a href="https://www.instagram.com/oni.seanti/" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-slate-800 hover:text-[#E4405F] transition inline-flex items-center gap-1">
-                    <span>@oni.seanti</span>
-                    <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-slate-400"></i>
-                  </a>
-                </div>
-              </div>
-
-            </div>
-
-            <div class="mt-8 pt-5 border-t border-slate-100 text-xs text-slate-500">
-              <span class="inline-flex items-center gap-1.5 text-emerald-600 font-semibold">
-                <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Open for collaboration
-              </span>
-            </div>
-          </div>
-
-          <!-- Right Contact Form (7 cols) -->
-          <div class="lg:col-span-7 bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-xs">
-            <form id="contact-form" class="space-y-4">
-              
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label for="name" class="block text-xs font-semibold text-slate-700 mb-1.5">Name</label>
-                  <input 
-                    type="text" 
-                    id="name" 
-                    name="name" 
-                    required 
-                    placeholder="Jane Doe" 
-                    class="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-200 bg-slate-50 text-slate-900 placeholder:text-slate-400 focus:outline-hidden focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition"
-                  />
-                </div>
-                <div>
-                  <label for="email" class="block text-xs font-semibold text-slate-700 mb-1.5">Your Email</label>
-                  <input 
-                    type="email" 
-                    id="email" 
-                    name="email" 
-                    required 
-                    placeholder="jane@example.com" 
-                    class="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-200 bg-slate-50 text-slate-900 placeholder:text-slate-400 focus:outline-hidden focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label for="subject" class="block text-xs font-semibold text-slate-700 mb-1.5">Subject</label>
-                <input 
-                  type="text" 
-                  id="subject" 
-                  name="subject" 
-                  required 
-                  placeholder="Project inquiry / Opportunity" 
-                  class="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-200 bg-slate-50 text-slate-900 placeholder:text-slate-400 focus:outline-hidden focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition"
-                />
-              </div>
-
-              <div>
-                <label for="message" class="block text-xs font-semibold text-slate-700 mb-1.5">Message</label>
-                <textarea 
-                  id="message" 
-                  name="message" 
-                  rows="4" 
-                  required 
-                  placeholder="Tell me about your project or what you have in mind..." 
-                  class="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-200 bg-slate-50 text-slate-900 placeholder:text-slate-400 focus:outline-hidden focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition resize-none"
-                ></textarea>
-              </div>
-
-              <button 
-                type="submit" 
-                id="submit-btn" 
-                class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2.5 rounded-xl shadow-xs transition inline-flex items-center justify-center gap-2 cursor-pointer"
-              >
-                <span>Send Message</span>
-                <i data-lucide="send" class="w-4 h-4"></i>
-              </button>
-
-              <div id="form-feedback" class="hidden text-sm font-medium p-3.5 rounded-xl bg-emerald-50 text-emerald-800 border border-emerald-200 animate-fade-in">
-                ✓ Thank you! Your message has been sent. I'll get back to you shortly.
-              </div>
-
-            </form>
-          </div>
-          
-        </div>
-      </section>
-
-      <!-- FOOTER -->
-      <footer class="pt-10 pb-6 mt-12 border-t border-slate-200/80 text-xs text-slate-500">
-        <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div>
-            <p class="font-bold text-slate-900 text-sm">Sean Manuel Chua</p>
-            <p class="text-slate-500 text-xs mt-0.5">4th-Year BSIT Student · <a href="mailto:chuaseanmanuel3@gmail.com" class="text-blue-600 hover:underline">chuaseanmanuel3@gmail.com</a></p>
-          </div>
-          <div class="flex items-center gap-4 text-xs font-medium">
-            <a href="https://www.facebook.com/sean.chua.908579" target="_blank" rel="noopener noreferrer" class="text-slate-600 hover:text-blue-600 transition">Facebook</a>
-            <span class="text-slate-300">·</span>
-            <a href="https://www.instagram.com/oni.seanti/" target="_blank" rel="noopener noreferrer" class="text-slate-600 hover:text-pink-600 transition">Instagram</a>
-            <span class="text-slate-300">·</span>
-            <a href="mailto:chuaseanmanuel3@gmail.com" class="text-slate-600 hover:text-red-500 transition">Email</a>
-            <span class="text-slate-300">·</span>
-            <a href="#home" class="text-blue-600 font-semibold hover:underline inline-flex items-center gap-1">
-              <span>Back to top</span>
-              <i data-lucide="arrow-up" class="w-3.5 h-3.5"></i>
-            </a>
+          <div class="pt-2 border-t border-slate-100 text-center mt-2">
+            <p class="text-[10px] text-slate-400 truncate">chuaseanmanuel3@gmail.com</p>
           </div>
         </div>
-        <p class="text-center sm:text-left text-slate-400 text-[11px] mt-6">
-          © 2026 Sean Manuel Chua. All rights reserved.
-        </p>
-      </footer>
+
+      </div>
 
     </main>
+
   </div>
 
-  <!-- VIEW ALL PROJECTS MODAL -->
-  <div id="projects-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-xs hidden opacity-0 transition-opacity duration-300">
-    <div class="bg-white rounded-2xl max-w-3xl w-full max-h-[85vh] overflow-y-auto p-6 sm:p-8 shadow-2xl relative transform scale-95 transition-transform duration-300 border border-slate-200/80">
+  <!-- ==================== MODALS SECTION ==================== -->
+
+  <!-- 1. ALL PROJECTS MODAL -->
+  <div id="projects-modal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-xs hidden opacity-0 transition-opacity duration-200">
+    <div class="bg-white rounded-2xl max-w-3xl w-full max-h-[85vh] overflow-y-auto p-6 sm:p-8 shadow-2xl relative transform scale-95 transition-transform duration-200 border border-slate-200/90">
       
       <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-6">
         <div>
-          <h3 class="text-xl font-bold text-slate-900">All Projects</h3>
-          <p class="text-xs text-slate-500 mt-0.5">Explore selected open-source and client web platforms</p>
+          <h3 class="text-xl font-bold text-slate-900">Projects Gallery</h3>
+          <p class="text-xs text-slate-500 mt-0.5">Explore selected web applications, repositories, and platforms</p>
         </div>
-        <button id="close-modal-btn" class="p-2 text-slate-400 hover:text-slate-700 rounded-lg hover:bg-slate-100 transition cursor-pointer" aria-label="Close modal">
+        <button class="close-modal-btn p-2 text-slate-400 hover:text-slate-700 rounded-lg hover:bg-slate-100 transition cursor-pointer" aria-label="Close modal">
           <i data-lucide="x" class="w-5 h-5"></i>
         </button>
       </div>
 
-      <!-- Extra projects list (Placeholders) -->
       <div class="divide-y divide-slate-100">
-
         <div class="py-4 hover:bg-slate-50/60 transition px-2 rounded-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
             <div class="flex items-center gap-2">
               <h4 class="font-bold text-slate-900 text-sm">Project Title One</h4>
               <span class="text-[11px] font-semibold bg-emerald-50 text-emerald-700 px-2.5 py-0.5 rounded-full">Active</span>
             </div>
-            <p class="text-xs text-slate-600 mt-1">Project description placeholder. Outline the core features and problem solved.</p>
-            <span class="inline-block mt-1.5 text-[11px] font-medium text-slate-500">Technology 1 · Technology 2 · Framework</span>
+            <p class="text-xs text-slate-600 mt-1">Full-stack web application designed for responsive device experiences and clean user workflows.</p>
+            <span class="inline-block mt-1.5 text-[11px] font-medium text-slate-500">JavaScript · CSS · Modern Framework</span>
           </div>
           <a href="#" class="shrink-0 text-xs font-semibold text-blue-600 hover:text-blue-700 inline-flex items-center gap-1">
             <span>Demo</span>
@@ -834,8 +477,8 @@
               <h4 class="font-bold text-slate-900 text-sm">Project Title Two</h4>
               <span class="text-[11px] font-semibold bg-blue-50 text-blue-700 px-2.5 py-0.5 rounded-full">App</span>
             </div>
-            <p class="text-xs text-slate-600 mt-1">Project description placeholder. Outline the key technical architecture.</p>
-            <span class="inline-block mt-1.5 text-[11px] font-medium text-slate-500">Technology 1 · Technology 2 · Database</span>
+            <p class="text-xs text-slate-600 mt-1">Interactive dashboard interface with data visualization and customized state tracking.</p>
+            <span class="inline-block mt-1.5 text-[11px] font-medium text-slate-500">Python · JavaScript · Database</span>
           </div>
           <a href="#" class="shrink-0 text-xs font-semibold text-blue-600 hover:text-blue-700 inline-flex items-center gap-1">
             <span>Demo</span>
@@ -849,8 +492,8 @@
               <h4 class="font-bold text-slate-900 text-sm">Project Title Three</h4>
               <span class="text-[11px] font-semibold bg-purple-50 text-purple-700 px-2.5 py-0.5 rounded-full">Platform</span>
             </div>
-            <p class="text-xs text-slate-600 mt-1">Project description placeholder. Detail user experience and deployment.</p>
-            <span class="inline-block mt-1.5 text-[11px] font-medium text-slate-500">Technology 1 · Technology 2 · Cloud</span>
+            <p class="text-xs text-slate-600 mt-1">Community portal built for real-time interaction, modular forms, and user profiles.</p>
+            <span class="inline-block mt-1.5 text-[11px] font-medium text-slate-500">Java · Web Services · Cloud</span>
           </div>
           <a href="#" class="shrink-0 text-xs font-semibold text-blue-600 hover:text-blue-700 inline-flex items-center gap-1">
             <span>Demo</span>
@@ -864,18 +507,245 @@
               <h4 class="font-bold text-slate-900 text-sm">Project Title Four</h4>
               <span class="text-[11px] font-semibold bg-amber-50 text-amber-700 px-2.5 py-0.5 rounded-full">Beta</span>
             </div>
-            <p class="text-xs text-slate-600 mt-1">Additional project placeholder for extra projects or open source repositories.</p>
-            <span class="inline-block mt-1.5 text-[11px] font-medium text-slate-500">Technology 1 · Technology 2 · Framework</span>
+            <p class="text-xs text-slate-600 mt-1">Open-source component library focused on accessibility and fluid motion design.</p>
+            <span class="inline-block mt-1.5 text-[11px] font-medium text-slate-500">Figma · CSS · UI Components</span>
           </div>
           <a href="#" class="shrink-0 text-xs font-semibold text-blue-600 hover:text-blue-700 inline-flex items-center gap-1">
             <span>Demo</span>
             <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
           </a>
         </div>
-
       </div>
 
     </div>
   </div>
+
+  <!-- 2. ABOUT & STORY MODAL -->
+  <div id="about-modal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-xs hidden opacity-0 transition-opacity duration-200">
+    <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto p-6 sm:p-8 shadow-2xl relative transform scale-95 transition-transform duration-200 border border-slate-200/90">
+      
+      <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-6">
+        <div>
+          <h3 class="text-xl font-bold text-slate-900">About Sean</h3>
+          <p class="text-xs text-slate-500 mt-0.5">Education, philosophy &amp; technical background</p>
+        </div>
+        <button class="close-modal-btn p-2 text-slate-400 hover:text-slate-700 rounded-lg hover:bg-slate-100 transition cursor-pointer" aria-label="Close modal">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="space-y-4 text-slate-600 text-sm leading-relaxed">
+        <p>
+          I am a <strong>Bachelor of Science in Information Technology (BSIT)</strong> student with a deep passion for web development and interface design. My work revolves around creating clean, scalable, and user-centric web applications.
+        </p>
+        <p>
+          I believe that good software lives at the intersection of robust programming logic and purposeful design. Whether structuring backend logic with <strong>Java</strong> and <strong>Python</strong> or crafting frontend interfaces with <strong>JavaScript</strong> and <strong>Figma</strong>, my goal is always to deliver smooth, intuitive experiences.
+        </p>
+        <div class="pt-3 border-t border-slate-100 text-slate-700 text-xs">
+          <p class="font-bold mb-1 text-slate-900">Academic &amp; Professional Focus:</p>
+          <ul class="list-disc list-inside space-y-1 text-slate-600">
+            <li>Modern Web Architecture &amp; Component Systems</li>
+            <li>Object-Oriented Programming &amp; Algorithmic Thinking</li>
+            <li>Accessible &amp; Responsive UI Engineering</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 3. TECH SKILLS MODAL -->
+  <div id="skills-modal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-xs hidden opacity-0 transition-opacity duration-200">
+    <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto p-6 sm:p-8 shadow-2xl relative transform scale-95 transition-transform duration-200 border border-slate-200/90">
+      
+      <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-6">
+        <div>
+          <h3 class="text-xl font-bold text-slate-900">Technical Skills</h3>
+          <p class="text-xs text-slate-500 mt-0.5">Languages, design software, and development toolchain</p>
+        </div>
+        <button class="close-modal-btn p-2 text-slate-400 hover:text-slate-700 rounded-lg hover:bg-slate-100 transition cursor-pointer" aria-label="Close modal">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="space-y-6">
+        <div>
+          <h4 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2.5">Programming Languages</h4>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-800 border border-slate-200">Java</span>
+            <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-800 border border-slate-200">Python</span>
+            <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-800 border border-slate-200">JavaScript</span>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2.5">Design &amp; Prototyping</h4>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-800 border border-slate-200">Figma</span>
+            <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-800 border border-slate-200">Canva</span>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2.5">Development Toolchain</h4>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-800 border border-slate-200">VS Code</span>
+            <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 text-slate-800 border border-slate-200">Git &amp; GitHub</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 4. CERTIFICATIONS MODAL -->
+  <div id="certifications-modal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-xs hidden opacity-0 transition-opacity duration-200">
+    <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto p-6 sm:p-8 shadow-2xl relative transform scale-95 transition-transform duration-200 border border-slate-200/90">
+      
+      <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-6">
+        <div>
+          <h3 class="text-xl font-bold text-slate-900">Certifications &amp; Credentials</h3>
+          <p class="text-xs text-slate-500 mt-0.5">Verified milestones, practical exams, and coursework</p>
+        </div>
+        <button class="close-modal-btn p-2 text-slate-400 hover:text-slate-700 rounded-lg hover:bg-slate-100 transition cursor-pointer" aria-label="Close modal">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="divide-y divide-slate-100">
+        <div class="py-3.5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+          <div>
+            <h4 class="font-bold text-sm text-slate-900">Web Development Fundamentals</h4>
+            <p class="text-xs text-blue-600 font-medium mt-0.5">Coursework Provider · <span class="text-slate-500">2024</span></p>
+            <p class="text-xs text-slate-600 mt-1">Core competencies in semantic web standards, modern styling, and DOM scripting.</p>
+          </div>
+          <span class="text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full shrink-0">Verified</span>
+        </div>
+
+        <div class="py-3.5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+          <div>
+            <h4 class="font-bold text-sm text-slate-900">Programming Principles (Java &amp; Python)</h4>
+            <p class="text-xs text-emerald-600 font-medium mt-0.5">Academic Credential · <span class="text-slate-500">2024</span></p>
+            <p class="text-xs text-slate-600 mt-1">Object-oriented programming, algorithmic efficiency, and data structures.</p>
+          </div>
+          <span class="text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full shrink-0">Verified</span>
+        </div>
+
+        <div class="py-3.5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+          <div>
+            <h4 class="font-bold text-sm text-slate-900">Database &amp; Cloud Fundamentals</h4>
+            <p class="text-xs text-purple-600 font-medium mt-0.5">Technical Milestones · <span class="text-slate-500">2023</span></p>
+            <p class="text-xs text-slate-600 mt-1">Relational database foundations, queries, and networked application architecture.</p>
+          </div>
+          <span class="text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full shrink-0">Verified</span>
+        </div>
+
+        <div class="py-3.5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+          <div>
+            <h4 class="font-bold text-sm text-slate-900">UI / UX &amp; Prototyping</h4>
+            <p class="text-xs text-amber-600 font-medium mt-0.5">Design Program · <span class="text-slate-500">2023</span></p>
+            <p class="text-xs text-slate-600 mt-1">Wireframing, high-fidelity UI design in Figma, and design systems integration.</p>
+          </div>
+          <span class="text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full shrink-0">Verified</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 5. FEEDBACK / TESTIMONIALS MODAL -->
+  <div id="feedback-modal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-xs hidden opacity-0 transition-opacity duration-200">
+    <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto p-6 sm:p-8 shadow-2xl relative transform scale-95 transition-transform duration-200 border border-slate-200/90">
+      
+      <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-6">
+        <div>
+          <h3 class="text-xl font-bold text-slate-900">Testimonials &amp; Feedback</h3>
+          <p class="text-xs text-slate-500 mt-0.5">Reviews from project collaborators, peers, and mentors</p>
+        </div>
+        <button class="close-modal-btn p-2 text-slate-400 hover:text-slate-700 rounded-lg hover:bg-slate-100 transition cursor-pointer" aria-label="Close modal">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="divide-y divide-slate-100">
+        <div class="py-3.5">
+          <p class="text-xs text-slate-700 italic leading-relaxed">
+            "Sean demonstrates great technical maturity and an eye for clean UI design. His projects are well-structured, responsive, and always delivered with clear documentation."
+          </p>
+          <div class="mt-2.5 flex items-center justify-between">
+            <div>
+              <p class="text-xs font-bold text-slate-900">Collaborator Review</p>
+              <p class="text-[11px] text-slate-500">Academic Project Team</p>
+            </div>
+            <span class="text-[11px] font-semibold text-blue-600 bg-blue-50 px-2 py-0.5 rounded">Verified</span>
+          </div>
+        </div>
+
+        <div class="py-3.5">
+          <p class="text-xs text-slate-700 italic leading-relaxed">
+            "Reliable team member with solid understanding of front-end layouts and version control workflows. Always eager to learn and improve."
+          </p>
+          <div class="mt-2.5 flex items-center justify-between">
+            <div>
+              <p class="text-xs font-bold text-slate-900">Peer Feedback</p>
+              <p class="text-[11px] text-slate-500">Web Development Workshop</p>
+            </div>
+            <span class="text-[11px] font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">Verified</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 6. CONTACT MODAL -->
+  <div id="contact-modal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-xs hidden opacity-0 transition-opacity duration-200">
+    <div class="bg-white rounded-2xl max-w-xl w-full max-h-[85vh] overflow-y-auto p-6 sm:p-8 shadow-2xl relative transform scale-95 transition-transform duration-200 border border-slate-200/90">
+      
+      <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-5">
+        <div>
+          <h3 class="text-xl font-bold text-slate-900">Get in Touch</h3>
+          <p class="text-xs text-slate-500 mt-0.5">Send a direct message or connect on social platforms</p>
+        </div>
+        <button class="close-modal-btn p-2 text-slate-400 hover:text-slate-700 rounded-lg hover:bg-slate-100 transition cursor-pointer" aria-label="Close modal">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form id="contact-form" class="space-y-3.5">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+          <div>
+            <label for="name" class="block text-xs font-semibold text-slate-700 mb-1">Your Name</label>
+            <input type="text" id="name" required placeholder="John Doe" class="w-full px-3 py-2 text-xs rounded-xl border border-slate-200 bg-slate-50 text-slate-900 focus:outline-hidden focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition" />
+          </div>
+          <div>
+            <label for="email" class="block text-xs font-semibold text-slate-700 mb-1">Your Email</label>
+            <input type="email" id="email" required placeholder="john@example.com" class="w-full px-3 py-2 text-xs rounded-xl border border-slate-200 bg-slate-50 text-slate-900 focus:outline-hidden focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition" />
+          </div>
+        </div>
+
+        <div>
+          <label for="subject" class="block text-xs font-semibold text-slate-700 mb-1">Subject</label>
+          <input type="text" id="subject" required placeholder="Project Collaboration" class="w-full px-3 py-2 text-xs rounded-xl border border-slate-200 bg-slate-50 text-slate-900 focus:outline-hidden focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition" />
+        </div>
+
+        <div>
+          <label for="message" class="block text-xs font-semibold text-slate-700 mb-1">Message</label>
+          <textarea id="message" rows="4" required placeholder="Tell me about your project..." class="w-full px-3 py-2 text-xs rounded-xl border border-slate-200 bg-slate-50 text-slate-900 focus:outline-hidden focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition resize-none"></textarea>
+        </div>
+
+        <button type="submit" id="submit-btn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs py-2.5 rounded-xl shadow-xs transition flex items-center justify-center gap-1.5 cursor-pointer">
+          <span>Send Message</span>
+          <i data-lucide="send" class="w-3.5 h-3.5"></i>
+        </button>
+
+        <div id="form-feedback" class="hidden text-xs font-medium p-3 rounded-xl bg-emerald-50 text-emerald-800 animate-fade-in text-center">
+          Thank you! Your message has been sent successfully.
+        </div>
+      </form>
+
+    </div>
+  </div>
+
 </body>
 </html>
