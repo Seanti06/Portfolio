@@ -1,4 +1,4 @@
-// Tailwind CSS Configuration
+// Tailwind CSS configuration
 if (typeof tailwind !== 'undefined') {
   tailwind.config = {
     theme: {
@@ -12,12 +12,12 @@ if (typeof tailwind !== 'undefined') {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Initialize Lucide Icons
+  // Initialize icons
   if (window.lucide) {
     window.lucide.createIcons();
   }
 
-  // 2. One-Click Copy Email with Tooltip
+  // Copy email to clipboard
   const copyEmailBtn = document.getElementById('copy-email-btn');
   const copyTooltip = document.getElementById('copy-email-tooltip');
   if (copyEmailBtn && copyTooltip) {
@@ -35,18 +35,16 @@ document.addEventListener('DOMContentLoaded', () => {
     copyEmailBtn.addEventListener('click', async () => {
       try {
         await navigator.clipboard.writeText(emailToCopy);
-        copyTooltip.textContent = "Copied to clipboard!";
+        copyTooltip.textContent = "Copied";
         copyTooltip.classList.remove('opacity-0');
-        setTimeout(() => {
-          copyTooltip.classList.add('opacity-0');
-        }, 2000);
+        setTimeout(() => copyTooltip.classList.add('opacity-0'), 2000);
       } catch (err) {
         window.location.href = `mailto:${emailToCopy}`;
       }
     });
   }
 
-  // 3. Mobile Navigation Drawer Controls
+  // Mobile drawer controls
   const sidebar = document.getElementById('sidebar');
   const mobileToggle = document.getElementById('mobile-menu-toggle');
   const mobileClose = document.getElementById('mobile-close-btn');
@@ -64,9 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!sidebar || !mobileBackdrop) return;
     sidebar.classList.add('-translate-x-full');
     mobileBackdrop.classList.add('opacity-0');
-    setTimeout(() => {
-      mobileBackdrop.classList.add('hidden');
-    }, 200);
+    setTimeout(() => mobileBackdrop.classList.add('hidden'), 200);
     document.body.classList.remove('overflow-hidden');
   }
 
@@ -74,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (mobileClose) mobileClose.addEventListener('click', closeMobileMenu);
   if (mobileBackdrop) mobileBackdrop.addEventListener('click', closeMobileMenu);
 
-  // 4. Modal Management System
+  // Modal dialog management
   const modalOverlays = document.querySelectorAll('.modal-overlay');
   const openModalBtns = document.querySelectorAll('.open-modal-btn');
   const closeModalBtns = document.querySelectorAll('.close-modal-btn');
@@ -98,7 +94,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const targetModal = document.getElementById(modalId);
     if (!targetModal) return;
 
-    // Close any other open modal first
     modalOverlays.forEach(m => {
       if (m !== targetModal && !m.classList.contains('hidden')) {
         m.classList.add('hidden', 'opacity-0');
@@ -115,7 +110,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.classList.add('overflow-hidden');
     setActiveNavLink(modalId);
 
-    // Close mobile drawer if open
     if (window.innerWidth < 1024) {
       closeMobileMenu();
     }
@@ -133,12 +127,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setTimeout(() => {
       targetModal.classList.add('hidden');
-      
-      // Check if any other modal is still visible
       const anyOpen = Array.from(modalOverlays).some(m => !m.classList.contains('hidden'));
       if (!anyOpen) {
         document.body.classList.remove('overflow-hidden');
-        setActiveNavLink(null); // Reset to Home active
+        setActiveNavLink(null);
       }
     }, 200);
   }
@@ -152,7 +144,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setActiveNavLink(null);
   }
 
-  // Trigger Open Modal buttons
   openModalBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -161,7 +152,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Trigger Close buttons
   closeModalBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const parentModal = btn.closest('.modal-overlay');
@@ -169,33 +159,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Clicking backdrop closes modal
   modalOverlays.forEach(modal => {
     modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        closeModal(modal);
-      }
+      if (e.target === modal) closeModal(modal);
     });
   });
 
-  // Home Nav Link closes all modals
   if (homeNavBtn) {
     homeNavBtn.addEventListener('click', () => {
       closeAllModals();
-      if (window.innerWidth < 1024) {
-        closeMobileMenu();
-      }
+      if (window.innerWidth < 1024) closeMobileMenu();
     });
   }
 
-  // Escape key closes modals
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      closeAllModals();
-    }
+    if (e.key === 'Escape') closeAllModals();
   });
 
-  // 5. Contact Form Submission
+  // Contact form submission
   const contactForm = document.getElementById('contact-form');
   const formFeedback = document.getElementById('form-feedback');
   const submitBtn = document.getElementById('submit-btn');
@@ -203,7 +184,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (contactForm && submitBtn && formFeedback) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      
       const originalText = submitBtn.innerHTML;
       submitBtn.disabled = true;
       submitBtn.innerHTML = `<span>Sending...</span>`;
@@ -212,13 +192,9 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalText;
         if (window.lucide) window.lucide.createIcons();
-        
         contactForm.reset();
         formFeedback.classList.remove('hidden');
-
-        setTimeout(() => {
-          formFeedback.classList.add('hidden');
-        }, 5000);
+        setTimeout(() => formFeedback.classList.add('hidden'), 5000);
       }, 500);
     });
   }
